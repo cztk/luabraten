@@ -1,0 +1,1264 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configurationDescriptor version="100">
+  <logicalFolder name="root" displayName="root" projectFiles="true" kind="ROOT">
+    <df root="." name="0">
+      <df name="enet">
+        <df name="include">
+          <df name="enet">
+            <in>callbacks.h</in>
+            <in>enet.h</in>
+            <in>list.h</in>
+            <in>protocol.h</in>
+            <in>time.h</in>
+            <in>types.h</in>
+            <in>unix.h</in>
+            <in>utility.h</in>
+            <in>win32.h</in>
+          </df>
+        </df>
+        <in>callbacks.c</in>
+        <in>compress.c</in>
+        <in>host.c</in>
+        <in>list.c</in>
+        <in>packet.c</in>
+        <in>peer.c</in>
+        <in>protocol.c</in>
+        <in>unix.c</in>
+        <in>win32.c</in>
+      </df>
+      <df name="engine">
+        <in>3dgui.cpp</in>
+        <in>animmodel.h</in>
+        <in>bih.cpp</in>
+        <in>bih.h</in>
+        <in>blend.cpp</in>
+        <in>blob.cpp</in>
+        <in>client.cpp</in>
+        <in>command.cpp</in>
+        <in>console.cpp</in>
+        <in>cubeloader.cpp</in>
+        <in>decal.cpp</in>
+        <in>depthfx.h</in>
+        <in>dynlight.cpp</in>
+        <in>engine.h</in>
+        <in>explosion.h</in>
+        <in>glare.cpp</in>
+        <in>grass.cpp</in>
+        <in>iqm.h</in>
+        <in>lensflare.h</in>
+        <in>lightmap.cpp</in>
+        <in>lightmap.h</in>
+        <in>lightning.h</in>
+        <in>main.cpp</in>
+        <in>master.cpp</in>
+        <in>material.cpp</in>
+        <in>md2.h</in>
+        <in>md3.h</in>
+        <in>md5.h</in>
+        <in>menus.cpp</in>
+        <in>model.h</in>
+        <in>movie.cpp</in>
+        <in>mpr.h</in>
+        <in>normal.cpp</in>
+        <in>obj.h</in>
+        <in>octa.cpp</in>
+        <in>octa.h</in>
+        <in>octaedit.cpp</in>
+        <in>octarender.cpp</in>
+        <in>pch.cpp</in>
+        <in>physics.cpp</in>
+        <in>pvs.cpp</in>
+        <in>ragdoll.h</in>
+        <in>rendergl.cpp</in>
+        <in>rendermodel.cpp</in>
+        <in>renderparticles.cpp</in>
+        <in>rendersky.cpp</in>
+        <in>rendertarget.h</in>
+        <in>rendertext.cpp</in>
+        <in>renderva.cpp</in>
+        <in>server.cpp</in>
+        <in>serverbrowser.cpp</in>
+        <in>shader.cpp</in>
+        <in>shadowmap.cpp</in>
+        <in>skelmodel.h</in>
+        <in>smd.h</in>
+        <in>sound.cpp</in>
+        <in>textedit.h</in>
+        <in>texture.cpp</in>
+        <in>texture.h</in>
+        <in>vertmodel.h</in>
+        <in>water.cpp</in>
+        <in>world.cpp</in>
+        <in>world.h</in>
+        <in>worldio.cpp</in>
+      </df>
+      <df name="fpsgame">
+        <in>ai.cpp</in>
+        <in>ai.h</in>
+        <in>aiman.h</in>
+        <in>capture.h</in>
+        <in>client.cpp</in>
+        <in>collect.h</in>
+        <in>ctf.h</in>
+        <in>entities.cpp</in>
+        <in>extinfo.h</in>
+        <in>fps.cpp</in>
+        <in>game.h</in>
+        <in>monster.cpp</in>
+        <in>movable.cpp</in>
+        <in>pch.cpp</in>
+        <in>render.cpp</in>
+        <in>scoreboard.cpp</in>
+        <in>server.cpp</in>
+        <in>waypoint.cpp</in>
+        <in>weapon.cpp</in>
+      </df>
+      <df name="include">
+        <in>SDL.h</in>
+        <in>SDL_assert.h</in>
+        <in>SDL_atomic.h</in>
+        <in>SDL_audio.h</in>
+        <in>SDL_bits.h</in>
+        <in>SDL_blendmode.h</in>
+        <in>SDL_clipboard.h</in>
+        <in>SDL_config.h</in>
+        <in>SDL_config_macosx.h</in>
+        <in>SDL_config_win32.h</in>
+        <in>SDL_config_windows.h</in>
+        <in>SDL_copying.h</in>
+        <in>SDL_cpuinfo.h</in>
+        <in>SDL_endian.h</in>
+        <in>SDL_error.h</in>
+        <in>SDL_events.h</in>
+        <in>SDL_filesystem.h</in>
+        <in>SDL_gamecontroller.h</in>
+        <in>SDL_gesture.h</in>
+        <in>SDL_haptic.h</in>
+        <in>SDL_hints.h</in>
+        <in>SDL_image.h</in>
+        <in>SDL_joystick.h</in>
+        <in>SDL_keyboard.h</in>
+        <in>SDL_keycode.h</in>
+        <in>SDL_loadso.h</in>
+        <in>SDL_log.h</in>
+        <in>SDL_main.h</in>
+        <in>SDL_messagebox.h</in>
+        <in>SDL_mixer.h</in>
+        <in>SDL_mouse.h</in>
+        <in>SDL_mutex.h</in>
+        <in>SDL_name.h</in>
+        <in>SDL_opengl.h</in>
+        <in>SDL_opengl_glext.h</in>
+        <in>SDL_pixels.h</in>
+        <in>SDL_platform.h</in>
+        <in>SDL_power.h</in>
+        <in>SDL_quit.h</in>
+        <in>SDL_rect.h</in>
+        <in>SDL_render.h</in>
+        <in>SDL_revision.h</in>
+        <in>SDL_rwops.h</in>
+        <in>SDL_scancode.h</in>
+        <in>SDL_shape.h</in>
+        <in>SDL_stdinc.h</in>
+        <in>SDL_surface.h</in>
+        <in>SDL_system.h</in>
+        <in>SDL_syswm.h</in>
+        <in>SDL_thread.h</in>
+        <in>SDL_timer.h</in>
+        <in>SDL_touch.h</in>
+        <in>SDL_types.h</in>
+        <in>SDL_version.h</in>
+        <in>SDL_video.h</in>
+        <in>begin_code.h</in>
+        <in>close_code.h</in>
+        <in>zconf.h</in>
+        <in>zlib.h</in>
+      </df>
+      <df name="lib">
+      </df>
+      <df name="lib64">
+      </df>
+      <df name="rpggame">
+        <in>ent.cpp</in>
+        <in>entities.cpp</in>
+        <in>objset.cpp</in>
+        <in>pch.cpp</in>
+        <in>rpg.cpp</in>
+        <in>rpg.h</in>
+        <in>rpgent.h</in>
+        <in>rpgobj.h</in>
+        <in>stats.h</in>
+      </df>
+      <df name="shared">
+        <in>command.h</in>
+        <in>crypto.cpp</in>
+        <in>cube.h</in>
+        <in>cube2font.c</in>
+        <in>ents.h</in>
+        <in>geom.cpp</in>
+        <in>geom.h</in>
+        <in>glemu.cpp</in>
+        <in>glemu.h</in>
+        <in>glexts.h</in>
+        <in>iengine.h</in>
+        <in>igame.h</in>
+        <in>pch.cpp</in>
+        <in>stream.cpp</in>
+        <in>tools.cpp</in>
+        <in>tools.h</in>
+        <in>zip.cpp</in>
+      </df>
+      <df name="vcpp">
+      </df>
+      <df name="xcode">
+        <df name="English.lproj">
+          <df name="MainMenu.nib">
+          </df>
+        </df>
+        <df name="Frameworks">
+          <df name="SDL.framework">
+            <df name="Headers">
+              <in>SDL.h</in>
+              <in>SDL_active.h</in>
+              <in>SDL_audio.h</in>
+              <in>SDL_byteorder.h</in>
+              <in>SDL_cdrom.h</in>
+              <in>SDL_config.h</in>
+              <in>SDL_config_dreamcast.h</in>
+              <in>SDL_config_macos.h</in>
+              <in>SDL_config_macosx.h</in>
+              <in>SDL_config_os2.h</in>
+              <in>SDL_config_win32.h</in>
+              <in>SDL_copying.h</in>
+              <in>SDL_cpuinfo.h</in>
+              <in>SDL_endian.h</in>
+              <in>SDL_error.h</in>
+              <in>SDL_events.h</in>
+              <in>SDL_getenv.h</in>
+              <in>SDL_joystick.h</in>
+              <in>SDL_keyboard.h</in>
+              <in>SDL_keysym.h</in>
+              <in>SDL_loadso.h</in>
+              <in>SDL_main.h</in>
+              <in>SDL_mouse.h</in>
+              <in>SDL_mutex.h</in>
+              <in>SDL_name.h</in>
+              <in>SDL_opengl.h</in>
+              <in>SDL_platform.h</in>
+              <in>SDL_quit.h</in>
+              <in>SDL_rwops.h</in>
+              <in>SDL_stdinc.h</in>
+              <in>SDL_syswm.h</in>
+              <in>SDL_thread.h</in>
+              <in>SDL_timer.h</in>
+              <in>SDL_types.h</in>
+              <in>SDL_version.h</in>
+              <in>SDL_video.h</in>
+              <in>begin_code.h</in>
+              <in>close_code.h</in>
+            </df>
+            <df name="Resources">
+              <df name="SDLMain.nib">
+              </df>
+            </df>
+            <df name="Versions">
+              <df name="A">
+                <df name="Headers">
+                  <in>SDL.h</in>
+                  <in>SDL_active.h</in>
+                  <in>SDL_audio.h</in>
+                  <in>SDL_byteorder.h</in>
+                  <in>SDL_cdrom.h</in>
+                  <in>SDL_config.h</in>
+                  <in>SDL_config_dreamcast.h</in>
+                  <in>SDL_config_macos.h</in>
+                  <in>SDL_config_macosx.h</in>
+                  <in>SDL_config_os2.h</in>
+                  <in>SDL_config_win32.h</in>
+                  <in>SDL_copying.h</in>
+                  <in>SDL_cpuinfo.h</in>
+                  <in>SDL_endian.h</in>
+                  <in>SDL_error.h</in>
+                  <in>SDL_events.h</in>
+                  <in>SDL_getenv.h</in>
+                  <in>SDL_joystick.h</in>
+                  <in>SDL_keyboard.h</in>
+                  <in>SDL_keysym.h</in>
+                  <in>SDL_loadso.h</in>
+                  <in>SDL_main.h</in>
+                  <in>SDL_mouse.h</in>
+                  <in>SDL_mutex.h</in>
+                  <in>SDL_name.h</in>
+                  <in>SDL_opengl.h</in>
+                  <in>SDL_platform.h</in>
+                  <in>SDL_quit.h</in>
+                  <in>SDL_rwops.h</in>
+                  <in>SDL_stdinc.h</in>
+                  <in>SDL_syswm.h</in>
+                  <in>SDL_thread.h</in>
+                  <in>SDL_timer.h</in>
+                  <in>SDL_types.h</in>
+                  <in>SDL_version.h</in>
+                  <in>SDL_video.h</in>
+                  <in>begin_code.h</in>
+                  <in>close_code.h</in>
+                </df>
+                <df name="Resources">
+                  <df name="SDLMain.nib">
+                  </df>
+                </df>
+              </df>
+              <df name="Current">
+                <df name="Headers">
+                  <in>SDL.h</in>
+                  <in>SDL_active.h</in>
+                  <in>SDL_audio.h</in>
+                  <in>SDL_byteorder.h</in>
+                  <in>SDL_cdrom.h</in>
+                  <in>SDL_config.h</in>
+                  <in>SDL_config_dreamcast.h</in>
+                  <in>SDL_config_macos.h</in>
+                  <in>SDL_config_macosx.h</in>
+                  <in>SDL_config_os2.h</in>
+                  <in>SDL_config_win32.h</in>
+                  <in>SDL_copying.h</in>
+                  <in>SDL_cpuinfo.h</in>
+                  <in>SDL_endian.h</in>
+                  <in>SDL_error.h</in>
+                  <in>SDL_events.h</in>
+                  <in>SDL_getenv.h</in>
+                  <in>SDL_joystick.h</in>
+                  <in>SDL_keyboard.h</in>
+                  <in>SDL_keysym.h</in>
+                  <in>SDL_loadso.h</in>
+                  <in>SDL_main.h</in>
+                  <in>SDL_mouse.h</in>
+                  <in>SDL_mutex.h</in>
+                  <in>SDL_name.h</in>
+                  <in>SDL_opengl.h</in>
+                  <in>SDL_platform.h</in>
+                  <in>SDL_quit.h</in>
+                  <in>SDL_rwops.h</in>
+                  <in>SDL_stdinc.h</in>
+                  <in>SDL_syswm.h</in>
+                  <in>SDL_thread.h</in>
+                  <in>SDL_timer.h</in>
+                  <in>SDL_types.h</in>
+                  <in>SDL_version.h</in>
+                  <in>SDL_video.h</in>
+                  <in>begin_code.h</in>
+                  <in>close_code.h</in>
+                </df>
+                <df name="Resources">
+                  <df name="SDLMain.nib">
+                  </df>
+                </df>
+              </df>
+            </df>
+          </df>
+          <df name="SDL_image.framework">
+            <df name="Frameworks">
+              <df name="webp.framework">
+                <df name="Headers">
+                  <df name="webp">
+                    <in>decode.h</in>
+                    <in>decode_vp8.h</in>
+                    <in>encode.h</in>
+                    <in>mux.h</in>
+                    <in>types.h</in>
+                  </df>
+                </df>
+                <df name="Resources">
+                  <df name="English.lproj">
+                  </df>
+                </df>
+                <df name="Versions">
+                  <df name="A">
+                    <df name="Headers">
+                      <df name="webp">
+                        <in>decode.h</in>
+                        <in>decode_vp8.h</in>
+                        <in>encode.h</in>
+                        <in>mux.h</in>
+                        <in>types.h</in>
+                      </df>
+                    </df>
+                    <df name="Resources">
+                      <df name="English.lproj">
+                      </df>
+                    </df>
+                  </df>
+                  <df name="Current">
+                    <df name="Headers">
+                      <df name="webp">
+                        <in>decode.h</in>
+                        <in>decode_vp8.h</in>
+                        <in>encode.h</in>
+                        <in>mux.h</in>
+                        <in>types.h</in>
+                      </df>
+                    </df>
+                    <df name="Resources">
+                      <df name="English.lproj">
+                      </df>
+                    </df>
+                  </df>
+                </df>
+              </df>
+            </df>
+            <df name="Headers">
+              <in>SDL_image.h</in>
+            </df>
+            <df name="Resources">
+            </df>
+            <df name="Versions">
+              <df name="A">
+                <df name="Frameworks">
+                  <df name="webp.framework">
+                    <df name="Headers">
+                      <df name="webp">
+                        <in>decode.h</in>
+                        <in>decode_vp8.h</in>
+                        <in>encode.h</in>
+                        <in>mux.h</in>
+                        <in>types.h</in>
+                      </df>
+                    </df>
+                    <df name="Resources">
+                      <df name="English.lproj">
+                      </df>
+                    </df>
+                    <df name="Versions">
+                      <df name="A">
+                        <df name="Headers">
+                          <df name="webp">
+                            <in>decode.h</in>
+                            <in>decode_vp8.h</in>
+                            <in>encode.h</in>
+                            <in>mux.h</in>
+                            <in>types.h</in>
+                          </df>
+                        </df>
+                        <df name="Resources">
+                          <df name="English.lproj">
+                          </df>
+                        </df>
+                      </df>
+                      <df name="Current">
+                        <df name="Headers">
+                          <df name="webp">
+                            <in>decode.h</in>
+                            <in>decode_vp8.h</in>
+                            <in>encode.h</in>
+                            <in>mux.h</in>
+                            <in>types.h</in>
+                          </df>
+                        </df>
+                        <df name="Resources">
+                          <df name="English.lproj">
+                          </df>
+                        </df>
+                      </df>
+                    </df>
+                  </df>
+                </df>
+                <df name="Headers">
+                  <in>SDL_image.h</in>
+                </df>
+                <df name="Resources">
+                </df>
+              </df>
+              <df name="Current">
+                <df name="Frameworks">
+                  <df name="webp.framework">
+                    <df name="Headers">
+                      <df name="webp">
+                        <in>decode.h</in>
+                        <in>decode_vp8.h</in>
+                        <in>encode.h</in>
+                        <in>mux.h</in>
+                        <in>types.h</in>
+                      </df>
+                    </df>
+                    <df name="Resources">
+                      <df name="English.lproj">
+                      </df>
+                    </df>
+                    <df name="Versions">
+                      <df name="A">
+                        <df name="Headers">
+                          <df name="webp">
+                            <in>decode.h</in>
+                            <in>decode_vp8.h</in>
+                            <in>encode.h</in>
+                            <in>mux.h</in>
+                            <in>types.h</in>
+                          </df>
+                        </df>
+                        <df name="Resources">
+                          <df name="English.lproj">
+                          </df>
+                        </df>
+                      </df>
+                      <df name="Current">
+                        <df name="Headers">
+                          <df name="webp">
+                            <in>decode.h</in>
+                            <in>decode_vp8.h</in>
+                            <in>encode.h</in>
+                            <in>mux.h</in>
+                            <in>types.h</in>
+                          </df>
+                        </df>
+                        <df name="Resources">
+                          <df name="English.lproj">
+                          </df>
+                        </df>
+                      </df>
+                    </df>
+                  </df>
+                </df>
+                <df name="Headers">
+                  <in>SDL_image.h</in>
+                </df>
+                <df name="Resources">
+                </df>
+              </df>
+            </df>
+          </df>
+          <df name="SDL_mixer.framework">
+            <df name="Frameworks">
+              <df name="FLAC.framework">
+                <df name="Headers">
+                  <df name="FLAC">
+                    <in>all.h</in>
+                    <in>assert.h</in>
+                    <in>callback.h</in>
+                    <in>export.h</in>
+                    <in>format.h</in>
+                    <in>metadata.h</in>
+                    <in>ordinals.h</in>
+                    <in>stream_decoder.h</in>
+                    <in>stream_encoder.h</in>
+                  </df>
+                </df>
+                <df name="Resources">
+                  <df name="English.lproj">
+                  </df>
+                </df>
+                <df name="Versions">
+                  <df name="A">
+                    <df name="Headers">
+                      <df name="FLAC">
+                        <in>all.h</in>
+                        <in>assert.h</in>
+                        <in>callback.h</in>
+                        <in>export.h</in>
+                        <in>format.h</in>
+                        <in>metadata.h</in>
+                        <in>ordinals.h</in>
+                        <in>stream_decoder.h</in>
+                        <in>stream_encoder.h</in>
+                      </df>
+                    </df>
+                    <df name="Resources">
+                      <df name="English.lproj">
+                      </df>
+                    </df>
+                  </df>
+                  <df name="Current">
+                    <df name="Headers">
+                      <df name="FLAC">
+                        <in>all.h</in>
+                        <in>assert.h</in>
+                        <in>callback.h</in>
+                        <in>export.h</in>
+                        <in>format.h</in>
+                        <in>metadata.h</in>
+                        <in>ordinals.h</in>
+                        <in>stream_decoder.h</in>
+                        <in>stream_encoder.h</in>
+                      </df>
+                    </df>
+                    <df name="Resources">
+                      <df name="English.lproj">
+                      </df>
+                    </df>
+                  </df>
+                </df>
+              </df>
+              <df name="mikmod.framework">
+                <df name="Headers">
+                  <in>mikmod.h</in>
+                </df>
+                <df name="Resources">
+                  <df name="English.lproj">
+                  </df>
+                </df>
+                <df name="Versions">
+                  <df name="A">
+                    <df name="Headers">
+                      <in>mikmod.h</in>
+                    </df>
+                    <df name="Resources">
+                      <df name="English.lproj">
+                      </df>
+                    </df>
+                  </df>
+                  <df name="Current">
+                    <df name="Headers">
+                      <in>mikmod.h</in>
+                    </df>
+                    <df name="Resources">
+                      <df name="English.lproj">
+                      </df>
+                    </df>
+                  </df>
+                </df>
+              </df>
+              <df name="Ogg.framework">
+                <df name="Headers">
+                  <in>ogg.h</in>
+                  <in>os_types.h</in>
+                </df>
+                <df name="Resources">
+                  <df name="English.lproj">
+                  </df>
+                </df>
+                <df name="Versions">
+                  <df name="A">
+                    <df name="Headers">
+                      <in>ogg.h</in>
+                      <in>os_types.h</in>
+                    </df>
+                    <df name="Resources">
+                      <df name="English.lproj">
+                      </df>
+                    </df>
+                  </df>
+                  <df name="Current">
+                    <df name="Headers">
+                      <in>ogg.h</in>
+                      <in>os_types.h</in>
+                    </df>
+                    <df name="Resources">
+                      <df name="English.lproj">
+                      </df>
+                    </df>
+                  </df>
+                </df>
+              </df>
+              <df name="smpeg.framework">
+                <df name="Headers">
+                  <in>MPEG.h</in>
+                  <in>MPEGaction.h</in>
+                  <in>MPEGaudio.h</in>
+                  <in>MPEGerror.h</in>
+                  <in>MPEGfilter.h</in>
+                  <in>MPEGlist.h</in>
+                  <in>MPEGring.h</in>
+                  <in>MPEGstream.h</in>
+                  <in>MPEGsystem.h</in>
+                  <in>MPEGvideo.h</in>
+                  <in>smpeg.h</in>
+                </df>
+                <df name="Resources">
+                </df>
+                <df name="Versions">
+                  <df name="A">
+                    <df name="Headers">
+                      <in>MPEG.h</in>
+                      <in>MPEGaction.h</in>
+                      <in>MPEGaudio.h</in>
+                      <in>MPEGerror.h</in>
+                      <in>MPEGfilter.h</in>
+                      <in>MPEGlist.h</in>
+                      <in>MPEGring.h</in>
+                      <in>MPEGstream.h</in>
+                      <in>MPEGsystem.h</in>
+                      <in>MPEGvideo.h</in>
+                      <in>smpeg.h</in>
+                    </df>
+                    <df name="Resources">
+                    </df>
+                  </df>
+                  <df name="Current">
+                    <df name="Headers">
+                      <in>MPEG.h</in>
+                      <in>MPEGaction.h</in>
+                      <in>MPEGaudio.h</in>
+                      <in>MPEGerror.h</in>
+                      <in>MPEGfilter.h</in>
+                      <in>MPEGlist.h</in>
+                      <in>MPEGring.h</in>
+                      <in>MPEGstream.h</in>
+                      <in>MPEGsystem.h</in>
+                      <in>MPEGvideo.h</in>
+                      <in>smpeg.h</in>
+                    </df>
+                    <df name="Resources">
+                    </df>
+                  </df>
+                </df>
+              </df>
+              <df name="Vorbis.framework">
+                <df name="Headers">
+                  <in>codec.h</in>
+                  <in>vorbisenc.h</in>
+                  <in>vorbisfile.h</in>
+                </df>
+                <df name="Resources">
+                  <df name="English.lproj">
+                  </df>
+                </df>
+                <df name="Versions">
+                  <df name="A">
+                    <df name="Headers">
+                      <in>codec.h</in>
+                      <in>vorbisenc.h</in>
+                      <in>vorbisfile.h</in>
+                    </df>
+                    <df name="Resources">
+                      <df name="English.lproj">
+                      </df>
+                    </df>
+                  </df>
+                  <df name="Current">
+                    <df name="Headers">
+                      <in>codec.h</in>
+                      <in>vorbisenc.h</in>
+                      <in>vorbisfile.h</in>
+                    </df>
+                    <df name="Resources">
+                      <df name="English.lproj">
+                      </df>
+                    </df>
+                  </df>
+                </df>
+              </df>
+            </df>
+            <df name="Headers">
+              <in>SDL_mixer.h</in>
+            </df>
+            <df name="Resources">
+            </df>
+            <df name="Versions">
+              <df name="A">
+                <df name="Frameworks">
+                  <df name="FLAC.framework">
+                    <df name="Headers">
+                      <df name="FLAC">
+                        <in>all.h</in>
+                        <in>assert.h</in>
+                        <in>callback.h</in>
+                        <in>export.h</in>
+                        <in>format.h</in>
+                        <in>metadata.h</in>
+                        <in>ordinals.h</in>
+                        <in>stream_decoder.h</in>
+                        <in>stream_encoder.h</in>
+                      </df>
+                    </df>
+                    <df name="Resources">
+                      <df name="English.lproj">
+                      </df>
+                    </df>
+                    <df name="Versions">
+                      <df name="A">
+                        <df name="Headers">
+                          <df name="FLAC">
+                            <in>all.h</in>
+                            <in>assert.h</in>
+                            <in>callback.h</in>
+                            <in>export.h</in>
+                            <in>format.h</in>
+                            <in>metadata.h</in>
+                            <in>ordinals.h</in>
+                            <in>stream_decoder.h</in>
+                            <in>stream_encoder.h</in>
+                          </df>
+                        </df>
+                        <df name="Resources">
+                          <df name="English.lproj">
+                          </df>
+                        </df>
+                      </df>
+                      <df name="Current">
+                        <df name="Headers">
+                          <df name="FLAC">
+                            <in>all.h</in>
+                            <in>assert.h</in>
+                            <in>callback.h</in>
+                            <in>export.h</in>
+                            <in>format.h</in>
+                            <in>metadata.h</in>
+                            <in>ordinals.h</in>
+                            <in>stream_decoder.h</in>
+                            <in>stream_encoder.h</in>
+                          </df>
+                        </df>
+                        <df name="Resources">
+                          <df name="English.lproj">
+                          </df>
+                        </df>
+                      </df>
+                    </df>
+                  </df>
+                  <df name="mikmod.framework">
+                    <df name="Headers">
+                      <in>mikmod.h</in>
+                    </df>
+                    <df name="Resources">
+                      <df name="English.lproj">
+                      </df>
+                    </df>
+                    <df name="Versions">
+                      <df name="A">
+                        <df name="Headers">
+                          <in>mikmod.h</in>
+                        </df>
+                        <df name="Resources">
+                          <df name="English.lproj">
+                          </df>
+                        </df>
+                      </df>
+                      <df name="Current">
+                        <df name="Headers">
+                          <in>mikmod.h</in>
+                        </df>
+                        <df name="Resources">
+                          <df name="English.lproj">
+                          </df>
+                        </df>
+                      </df>
+                    </df>
+                  </df>
+                  <df name="Ogg.framework">
+                    <df name="Headers">
+                      <in>ogg.h</in>
+                      <in>os_types.h</in>
+                    </df>
+                    <df name="Resources">
+                      <df name="English.lproj">
+                      </df>
+                    </df>
+                    <df name="Versions">
+                      <df name="A">
+                        <df name="Headers">
+                          <in>ogg.h</in>
+                          <in>os_types.h</in>
+                        </df>
+                        <df name="Resources">
+                          <df name="English.lproj">
+                          </df>
+                        </df>
+                      </df>
+                      <df name="Current">
+                        <df name="Headers">
+                          <in>ogg.h</in>
+                          <in>os_types.h</in>
+                        </df>
+                        <df name="Resources">
+                          <df name="English.lproj">
+                          </df>
+                        </df>
+                      </df>
+                    </df>
+                  </df>
+                  <df name="smpeg.framework">
+                    <df name="Headers">
+                      <in>MPEG.h</in>
+                      <in>MPEGaction.h</in>
+                      <in>MPEGaudio.h</in>
+                      <in>MPEGerror.h</in>
+                      <in>MPEGfilter.h</in>
+                      <in>MPEGlist.h</in>
+                      <in>MPEGring.h</in>
+                      <in>MPEGstream.h</in>
+                      <in>MPEGsystem.h</in>
+                      <in>MPEGvideo.h</in>
+                      <in>smpeg.h</in>
+                    </df>
+                    <df name="Resources">
+                    </df>
+                    <df name="Versions">
+                      <df name="A">
+                        <df name="Headers">
+                          <in>MPEG.h</in>
+                          <in>MPEGaction.h</in>
+                          <in>MPEGaudio.h</in>
+                          <in>MPEGerror.h</in>
+                          <in>MPEGfilter.h</in>
+                          <in>MPEGlist.h</in>
+                          <in>MPEGring.h</in>
+                          <in>MPEGstream.h</in>
+                          <in>MPEGsystem.h</in>
+                          <in>MPEGvideo.h</in>
+                          <in>smpeg.h</in>
+                        </df>
+                        <df name="Resources">
+                        </df>
+                      </df>
+                      <df name="Current">
+                        <df name="Headers">
+                          <in>MPEG.h</in>
+                          <in>MPEGaction.h</in>
+                          <in>MPEGaudio.h</in>
+                          <in>MPEGerror.h</in>
+                          <in>MPEGfilter.h</in>
+                          <in>MPEGlist.h</in>
+                          <in>MPEGring.h</in>
+                          <in>MPEGstream.h</in>
+                          <in>MPEGsystem.h</in>
+                          <in>MPEGvideo.h</in>
+                          <in>smpeg.h</in>
+                        </df>
+                        <df name="Resources">
+                        </df>
+                      </df>
+                    </df>
+                  </df>
+                  <df name="Vorbis.framework">
+                    <df name="Headers">
+                      <in>codec.h</in>
+                      <in>vorbisenc.h</in>
+                      <in>vorbisfile.h</in>
+                    </df>
+                    <df name="Resources">
+                      <df name="English.lproj">
+                      </df>
+                    </df>
+                    <df name="Versions">
+                      <df name="A">
+                        <df name="Headers">
+                          <in>codec.h</in>
+                          <in>vorbisenc.h</in>
+                          <in>vorbisfile.h</in>
+                        </df>
+                        <df name="Resources">
+                          <df name="English.lproj">
+                          </df>
+                        </df>
+                      </df>
+                      <df name="Current">
+                        <df name="Headers">
+                          <in>codec.h</in>
+                          <in>vorbisenc.h</in>
+                          <in>vorbisfile.h</in>
+                        </df>
+                        <df name="Resources">
+                          <df name="English.lproj">
+                          </df>
+                        </df>
+                      </df>
+                    </df>
+                  </df>
+                </df>
+                <df name="Headers">
+                  <in>SDL_mixer.h</in>
+                </df>
+                <df name="Resources">
+                </df>
+              </df>
+              <df name="Current">
+                <df name="Frameworks">
+                  <df name="FLAC.framework">
+                    <df name="Headers">
+                      <df name="FLAC">
+                        <in>all.h</in>
+                        <in>assert.h</in>
+                        <in>callback.h</in>
+                        <in>export.h</in>
+                        <in>format.h</in>
+                        <in>metadata.h</in>
+                        <in>ordinals.h</in>
+                        <in>stream_decoder.h</in>
+                        <in>stream_encoder.h</in>
+                      </df>
+                    </df>
+                    <df name="Resources">
+                      <df name="English.lproj">
+                      </df>
+                    </df>
+                    <df name="Versions">
+                      <df name="A">
+                        <df name="Headers">
+                          <df name="FLAC">
+                            <in>all.h</in>
+                            <in>assert.h</in>
+                            <in>callback.h</in>
+                            <in>export.h</in>
+                            <in>format.h</in>
+                            <in>metadata.h</in>
+                            <in>ordinals.h</in>
+                            <in>stream_decoder.h</in>
+                            <in>stream_encoder.h</in>
+                          </df>
+                        </df>
+                        <df name="Resources">
+                          <df name="English.lproj">
+                          </df>
+                        </df>
+                      </df>
+                      <df name="Current">
+                        <df name="Headers">
+                          <df name="FLAC">
+                            <in>all.h</in>
+                            <in>assert.h</in>
+                            <in>callback.h</in>
+                            <in>export.h</in>
+                            <in>format.h</in>
+                            <in>metadata.h</in>
+                            <in>ordinals.h</in>
+                            <in>stream_decoder.h</in>
+                            <in>stream_encoder.h</in>
+                          </df>
+                        </df>
+                        <df name="Resources">
+                          <df name="English.lproj">
+                          </df>
+                        </df>
+                      </df>
+                    </df>
+                  </df>
+                  <df name="mikmod.framework">
+                    <df name="Headers">
+                      <in>mikmod.h</in>
+                    </df>
+                    <df name="Resources">
+                      <df name="English.lproj">
+                      </df>
+                    </df>
+                    <df name="Versions">
+                      <df name="A">
+                        <df name="Headers">
+                          <in>mikmod.h</in>
+                        </df>
+                        <df name="Resources">
+                          <df name="English.lproj">
+                          </df>
+                        </df>
+                      </df>
+                      <df name="Current">
+                        <df name="Headers">
+                          <in>mikmod.h</in>
+                        </df>
+                        <df name="Resources">
+                          <df name="English.lproj">
+                          </df>
+                        </df>
+                      </df>
+                    </df>
+                  </df>
+                  <df name="Ogg.framework">
+                    <df name="Headers">
+                      <in>ogg.h</in>
+                      <in>os_types.h</in>
+                    </df>
+                    <df name="Resources">
+                      <df name="English.lproj">
+                      </df>
+                    </df>
+                    <df name="Versions">
+                      <df name="A">
+                        <df name="Headers">
+                          <in>ogg.h</in>
+                          <in>os_types.h</in>
+                        </df>
+                        <df name="Resources">
+                          <df name="English.lproj">
+                          </df>
+                        </df>
+                      </df>
+                      <df name="Current">
+                        <df name="Headers">
+                          <in>ogg.h</in>
+                          <in>os_types.h</in>
+                        </df>
+                        <df name="Resources">
+                          <df name="English.lproj">
+                          </df>
+                        </df>
+                      </df>
+                    </df>
+                  </df>
+                  <df name="smpeg.framework">
+                    <df name="Headers">
+                      <in>MPEG.h</in>
+                      <in>MPEGaction.h</in>
+                      <in>MPEGaudio.h</in>
+                      <in>MPEGerror.h</in>
+                      <in>MPEGfilter.h</in>
+                      <in>MPEGlist.h</in>
+                      <in>MPEGring.h</in>
+                      <in>MPEGstream.h</in>
+                      <in>MPEGsystem.h</in>
+                      <in>MPEGvideo.h</in>
+                      <in>smpeg.h</in>
+                    </df>
+                    <df name="Resources">
+                    </df>
+                    <df name="Versions">
+                      <df name="A">
+                        <df name="Headers">
+                          <in>MPEG.h</in>
+                          <in>MPEGaction.h</in>
+                          <in>MPEGaudio.h</in>
+                          <in>MPEGerror.h</in>
+                          <in>MPEGfilter.h</in>
+                          <in>MPEGlist.h</in>
+                          <in>MPEGring.h</in>
+                          <in>MPEGstream.h</in>
+                          <in>MPEGsystem.h</in>
+                          <in>MPEGvideo.h</in>
+                          <in>smpeg.h</in>
+                        </df>
+                        <df name="Resources">
+                        </df>
+                      </df>
+                      <df name="Current">
+                        <df name="Headers">
+                          <in>MPEG.h</in>
+                          <in>MPEGaction.h</in>
+                          <in>MPEGaudio.h</in>
+                          <in>MPEGerror.h</in>
+                          <in>MPEGfilter.h</in>
+                          <in>MPEGlist.h</in>
+                          <in>MPEGring.h</in>
+                          <in>MPEGstream.h</in>
+                          <in>MPEGsystem.h</in>
+                          <in>MPEGvideo.h</in>
+                          <in>smpeg.h</in>
+                        </df>
+                        <df name="Resources">
+                        </df>
+                      </df>
+                    </df>
+                  </df>
+                  <df name="Vorbis.framework">
+                    <df name="Headers">
+                      <in>codec.h</in>
+                      <in>vorbisenc.h</in>
+                      <in>vorbisfile.h</in>
+                    </df>
+                    <df name="Resources">
+                      <df name="English.lproj">
+                      </df>
+                    </df>
+                    <df name="Versions">
+                      <df name="A">
+                        <df name="Headers">
+                          <in>codec.h</in>
+                          <in>vorbisenc.h</in>
+                          <in>vorbisfile.h</in>
+                        </df>
+                        <df name="Resources">
+                          <df name="English.lproj">
+                          </df>
+                        </df>
+                      </df>
+                      <df name="Current">
+                        <df name="Headers">
+                          <in>codec.h</in>
+                          <in>vorbisenc.h</in>
+                          <in>vorbisfile.h</in>
+                        </df>
+                        <df name="Resources">
+                          <df name="English.lproj">
+                          </df>
+                        </df>
+                      </df>
+                    </df>
+                  </df>
+                </df>
+                <df name="Headers">
+                  <in>SDL_mixer.h</in>
+                </df>
+                <df name="Resources">
+                </df>
+              </df>
+            </df>
+          </df>
+        </df>
+        <df name="help">
+        </df>
+        <df name="sauerbraten.xcodeproj">
+        </df>
+        <in>Launcher.h</in>
+        <in>Launcher.m</in>
+        <in>main.m</in>
+      </df>
+    </df>
+  </logicalFolder>
+  <projectmakefile>Makefile</projectmakefile>
+  <confs>
+    <conf name="Default" type="0">
+      <toolsSet>
+        <developmentServer>localhost</developmentServer>
+        <platform>2</platform>
+      </toolsSet>
+      <compile>
+        <compiledirpicklist>
+          <compiledirpicklistitem>.</compiledirpicklistitem>
+          <compiledirpicklistitem>${AUTO_FOLDER}</compiledirpicklistitem>
+        </compiledirpicklist>
+        <compiledir>${AUTO_FOLDER}</compiledir>
+        <compilecommandpicklist>
+          <compilecommandpicklistitem>${MAKE} ${ITEM_NAME}.o</compilecommandpicklistitem>
+          <compilecommandpicklistitem>${AUTO_COMPILE}</compilecommandpicklistitem>
+        </compilecommandpicklist>
+        <compilecommand>${AUTO_COMPILE}</compilecommand>
+      </compile>
+      <dbx_gdbdebugger version="1">
+        <gdb_pathmaps>
+        </gdb_pathmaps>
+        <gdb_interceptlist>
+          <gdbinterceptoptions gdb_all="false" gdb_unhandled="true" gdb_unexpected="true"/>
+        </gdb_interceptlist>
+        <gdb_options>
+          <DebugOptions>
+          </DebugOptions>
+        </gdb_options>
+        <gdb_buildfirst gdb_buildfirst_overriden="false" gdb_buildfirst_old="false"/>
+      </dbx_gdbdebugger>
+      <dbxdebugger version="1">
+        <pathmaps>
+        </pathmaps>
+        <interceptlist>
+          <interceptoptions all="false" unhandled="true" unexpected="true"/>
+        </interceptlist>
+        <signals>
+        </signals>
+        <options>
+          <DebugOptions>
+          </DebugOptions>
+        </options>
+        <buildfirst buildfirst_overriden="false" buildfirst_old="false"/>
+      </dbxdebugger>
+      <dbxrtc version="1">
+        <options>
+          <RtcOptions>
+            <option name="rtc_error_log_file_name" value="/dev/null"/>
+          </RtcOptions>
+        </options>
+        <loadobjs>
+        </loadobjs>
+      </dbxrtc>
+      <nativedebugger version="1">
+        <engine>dbx</engine>
+      </nativedebugger>
+      <runprofile version="9">
+        <runcommandpicklist>
+          <runcommandpicklistitem>"${OUTPUT_PATH}"</runcommandpicklistitem>
+        </runcommandpicklist>
+        <runcommand>"${OUTPUT_PATH}"</runcommand>
+        <rundir>.</rundir>
+        <buildfirst>false</buildfirst>
+        <terminal-type>0</terminal-type>
+        <remove-instrumentation>0</remove-instrumentation>
+        <environment>
+        </environment>
+      </runprofile>
+    </conf>
+  </confs>
+</configurationDescriptor>

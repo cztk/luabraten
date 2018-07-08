@@ -1,0 +1,405 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configurationDescriptor version="100">
+  <logicalFolder name="root" displayName="root" projectFiles="true" kind="ROOT">
+    <df root="." name="0">
+      <df name="enet">
+        <in>callbacks.c</in>
+        <in>compress.c</in>
+        <in>host.c</in>
+        <in>list.c</in>
+        <in>packet.c</in>
+        <in>peer.c</in>
+        <in>protocol.c</in>
+        <in>unix.c</in>
+        <in>win32.c</in>
+      </df>
+      <df name="engine">
+        <in>3dgui.cpp</in>
+        <in>bih.cpp</in>
+        <in>blend.cpp</in>
+        <in>blob.cpp</in>
+        <in>client.cpp</in>
+        <in>command.cpp</in>
+        <in>console.cpp</in>
+        <in>cubeloader.cpp</in>
+        <in>decal.cpp</in>
+        <in>dynlight.cpp</in>
+        <in>glare.cpp</in>
+        <in>grass.cpp</in>
+        <in>lightmap.cpp</in>
+        <in>main.cpp</in>
+        <in>material.cpp</in>
+        <in>menus.cpp</in>
+        <in>movie.cpp</in>
+        <in>normal.cpp</in>
+        <in>octa.cpp</in>
+        <in>octaedit.cpp</in>
+        <in>octarender.cpp</in>
+        <in>physics.cpp</in>
+        <in>pvs.cpp</in>
+        <in>rendergl.cpp</in>
+        <in>rendermodel.cpp</in>
+        <in>renderparticles.cpp</in>
+        <in>rendersky.cpp</in>
+        <in>rendertext.cpp</in>
+        <in>renderva.cpp</in>
+        <in>server.cpp</in>
+        <in>serverbrowser.cpp</in>
+        <in>shader.cpp</in>
+        <in>shadowmap.cpp</in>
+        <in>sound.cpp</in>
+        <in>texture.cpp</in>
+        <in>water.cpp</in>
+        <in>world.cpp</in>
+        <in>worldio.cpp</in>
+      </df>
+      <df name="fpsgame">
+        <in>ai.cpp</in>
+        <in>client.cpp</in>
+        <in>entities.cpp</in>
+        <in>fps.cpp</in>
+        <in>monster.cpp</in>
+        <in>movable.cpp</in>
+        <in>render.cpp</in>
+        <in>scoreboard.cpp</in>
+        <in>server.cpp</in>
+        <in>waypoint.cpp</in>
+        <in>weapon.cpp</in>
+      </df>
+      <df name="shared">
+        <in>crypto.cpp</in>
+        <in>geom.cpp</in>
+        <in>glemu.cpp</in>
+        <in>stream.cpp</in>
+        <in>tools.cpp</in>
+        <in>zip.cpp</in>
+      </df>
+    </df>
+    <logicalFolder name="ExternalFiles"
+                   displayName="Important Files"
+                   projectFiles="false"
+                   kind="IMPORTANT_FILES_FOLDER">
+      <itemPath>Makefile</itemPath>
+      <itemPath>nbproject/private/launcher.properties</itemPath>
+    </logicalFolder>
+  </logicalFolder>
+  <sourceFolderFilter>^(nbproject)$</sourceFolderFilter>
+  <sourceRootList>
+    <Elem>.</Elem>
+  </sourceRootList>
+  <projectmakefile>Makefile</projectmakefile>
+  <confs>
+    <conf name="Default" type="0">
+      <toolsSet>
+        <compilerSet>GNU_1|GNU</compilerSet>
+        <dependencyChecking>false</dependencyChecking>
+        <rebuildPropChanged>false</rebuildPropChanged>
+      </toolsSet>
+      <flagsDictionary>
+        <element flagsID="0" commonFlags="-O3"/>
+        <element flagsID="1" commonFlags="-O3 -ffast-math -fno-exceptions -fno-rtti"/>
+      </flagsDictionary>
+      <codeAssistance>
+      </codeAssistance>
+      <makefileType>
+        <makeTool>
+          <buildCommandWorkingDir>.</buildCommandWorkingDir>
+          <buildCommand>${MAKE} -f Makefile</buildCommand>
+          <cleanCommand>${MAKE} -f Makefile clean</cleanCommand>
+          <executablePath></executablePath>
+          <cTool>
+            <incDir>
+              <pElem>enet/include</pElem>
+            </incDir>
+            <preprocessorList>
+              <Elem>HAS_FCNTL</Elem>
+              <Elem>HAS_GETADDRINFO</Elem>
+              <Elem>HAS_GETHOSTBYADDR_R</Elem>
+              <Elem>HAS_GETHOSTBYNAME_R</Elem>
+              <Elem>HAS_GETNAMEINFO</Elem>
+              <Elem>HAS_INET_NTOP</Elem>
+              <Elem>HAS_INET_PTON</Elem>
+              <Elem>HAS_MSGHDR_FLAGS</Elem>
+              <Elem>HAS_POLL</Elem>
+              <Elem>HAS_SOCKLEN_T</Elem>
+            </preprocessorList>
+          </cTool>
+          <ccTool>
+            <incDir>
+              <pElem>shared</pElem>
+              <pElem>engine</pElem>
+              <pElem>fpsgame</pElem>
+              <pElem>enet/include</pElem>
+              <pElem>/usr/X11R6/include</pElem>
+              <pElem>/usr/include/SDL2</pElem>
+              <pElem>.</pElem>
+            </incDir>
+            <preprocessorList>
+              <Elem>_REENTRANT</Elem>
+            </preprocessorList>
+          </ccTool>
+        </makeTool>
+        <preBuild>
+          <preBuildCommandWorkingDir>.</preBuildCommandWorkingDir>
+          <preBuildCommand></preBuildCommand>
+        </preBuild>
+      </makefileType>
+      <item path="enet/callbacks.c" ex="false" tool="0" flavor2="0">
+        <cTool flags="0">
+        </cTool>
+      </item>
+      <item path="enet/compress.c" ex="false" tool="0" flavor2="0">
+        <cTool flags="0">
+        </cTool>
+      </item>
+      <item path="enet/host.c" ex="false" tool="0" flavor2="0">
+        <cTool flags="0">
+        </cTool>
+      </item>
+      <item path="enet/list.c" ex="false" tool="0" flavor2="0">
+        <cTool flags="0">
+        </cTool>
+      </item>
+      <item path="enet/packet.c" ex="false" tool="0" flavor2="0">
+        <cTool flags="0">
+        </cTool>
+      </item>
+      <item path="enet/peer.c" ex="false" tool="0" flavor2="0">
+        <cTool flags="0">
+        </cTool>
+      </item>
+      <item path="enet/protocol.c" ex="false" tool="0" flavor2="0">
+        <cTool flags="0">
+        </cTool>
+      </item>
+      <item path="enet/unix.c" ex="false" tool="0" flavor2="0">
+        <cTool flags="0">
+        </cTool>
+      </item>
+      <item path="enet/win32.c" ex="false" tool="0" flavor2="0">
+        <cTool flags="0">
+        </cTool>
+      </item>
+      <item path="engine/3dgui.cpp" ex="false" tool="1" flavor2="0">
+        <ccTool flags="1">
+        </ccTool>
+      </item>
+      <item path="engine/bih.cpp" ex="false" tool="1" flavor2="0">
+        <ccTool flags="1">
+        </ccTool>
+      </item>
+      <item path="engine/blend.cpp" ex="false" tool="1" flavor2="0">
+        <ccTool flags="1">
+        </ccTool>
+      </item>
+      <item path="engine/blob.cpp" ex="false" tool="1" flavor2="0">
+        <ccTool flags="1">
+        </ccTool>
+      </item>
+      <item path="engine/client.cpp" ex="false" tool="1" flavor2="0">
+        <ccTool flags="1">
+        </ccTool>
+      </item>
+      <item path="engine/command.cpp" ex="false" tool="1" flavor2="0">
+        <ccTool flags="1">
+        </ccTool>
+      </item>
+      <item path="engine/console.cpp" ex="false" tool="1" flavor2="0">
+        <ccTool flags="1">
+        </ccTool>
+      </item>
+      <item path="engine/cubeloader.cpp" ex="false" tool="1" flavor2="0">
+        <ccTool flags="1">
+        </ccTool>
+      </item>
+      <item path="engine/decal.cpp" ex="false" tool="1" flavor2="0">
+        <ccTool flags="1">
+        </ccTool>
+      </item>
+      <item path="engine/dynlight.cpp" ex="false" tool="1" flavor2="0">
+        <ccTool flags="1">
+        </ccTool>
+      </item>
+      <item path="engine/glare.cpp" ex="false" tool="1" flavor2="0">
+        <ccTool flags="1">
+        </ccTool>
+      </item>
+      <item path="engine/grass.cpp" ex="false" tool="1" flavor2="0">
+        <ccTool flags="1">
+        </ccTool>
+      </item>
+      <item path="engine/lightmap.cpp" ex="false" tool="1" flavor2="0">
+        <ccTool flags="1">
+        </ccTool>
+      </item>
+      <item path="engine/main.cpp" ex="false" tool="1" flavor2="0">
+        <ccTool flags="1">
+        </ccTool>
+      </item>
+      <item path="engine/material.cpp" ex="false" tool="1" flavor2="0">
+        <ccTool flags="1">
+        </ccTool>
+      </item>
+      <item path="engine/menus.cpp" ex="false" tool="1" flavor2="0">
+        <ccTool flags="1">
+        </ccTool>
+      </item>
+      <item path="engine/movie.cpp" ex="false" tool="1" flavor2="0">
+        <ccTool flags="1">
+        </ccTool>
+      </item>
+      <item path="engine/normal.cpp" ex="false" tool="1" flavor2="0">
+        <ccTool flags="1">
+        </ccTool>
+      </item>
+      <item path="engine/octa.cpp" ex="false" tool="1" flavor2="0">
+        <ccTool flags="1">
+        </ccTool>
+      </item>
+      <item path="engine/octaedit.cpp" ex="false" tool="1" flavor2="0">
+        <ccTool flags="1">
+        </ccTool>
+      </item>
+      <item path="engine/octarender.cpp" ex="false" tool="1" flavor2="0">
+        <ccTool flags="1">
+        </ccTool>
+      </item>
+      <item path="engine/physics.cpp" ex="false" tool="1" flavor2="0">
+        <ccTool flags="1">
+        </ccTool>
+      </item>
+      <item path="engine/pvs.cpp" ex="false" tool="1" flavor2="0">
+        <ccTool flags="1">
+        </ccTool>
+      </item>
+      <item path="engine/rendergl.cpp" ex="false" tool="1" flavor2="0">
+        <ccTool flags="1">
+        </ccTool>
+      </item>
+      <item path="engine/rendermodel.cpp" ex="false" tool="1" flavor2="0">
+        <ccTool flags="1">
+        </ccTool>
+      </item>
+      <item path="engine/renderparticles.cpp" ex="false" tool="1" flavor2="0">
+        <ccTool flags="1">
+        </ccTool>
+      </item>
+      <item path="engine/rendersky.cpp" ex="false" tool="1" flavor2="0">
+        <ccTool flags="1">
+        </ccTool>
+      </item>
+      <item path="engine/rendertext.cpp" ex="false" tool="1" flavor2="0">
+        <ccTool flags="1">
+        </ccTool>
+      </item>
+      <item path="engine/renderva.cpp" ex="false" tool="1" flavor2="0">
+        <ccTool flags="1">
+        </ccTool>
+      </item>
+      <item path="engine/server.cpp" ex="false" tool="1" flavor2="0">
+        <ccTool flags="1">
+        </ccTool>
+      </item>
+      <item path="engine/serverbrowser.cpp" ex="false" tool="1" flavor2="0">
+        <ccTool flags="1">
+        </ccTool>
+      </item>
+      <item path="engine/shader.cpp" ex="false" tool="1" flavor2="0">
+        <ccTool flags="1">
+        </ccTool>
+      </item>
+      <item path="engine/shadowmap.cpp" ex="false" tool="1" flavor2="0">
+        <ccTool flags="1">
+        </ccTool>
+      </item>
+      <item path="engine/sound.cpp" ex="false" tool="1" flavor2="0">
+        <ccTool flags="1">
+        </ccTool>
+      </item>
+      <item path="engine/texture.cpp" ex="false" tool="1" flavor2="0">
+        <ccTool flags="1">
+        </ccTool>
+      </item>
+      <item path="engine/water.cpp" ex="false" tool="1" flavor2="0">
+        <ccTool flags="1">
+        </ccTool>
+      </item>
+      <item path="engine/world.cpp" ex="false" tool="1" flavor2="0">
+        <ccTool flags="1">
+        </ccTool>
+      </item>
+      <item path="engine/worldio.cpp" ex="false" tool="1" flavor2="0">
+        <ccTool flags="1">
+        </ccTool>
+      </item>
+      <item path="fpsgame/ai.cpp" ex="false" tool="1" flavor2="0">
+        <ccTool flags="1">
+        </ccTool>
+      </item>
+      <item path="fpsgame/client.cpp" ex="false" tool="1" flavor2="0">
+        <ccTool flags="1">
+        </ccTool>
+      </item>
+      <item path="fpsgame/entities.cpp" ex="false" tool="1" flavor2="0">
+        <ccTool flags="1">
+        </ccTool>
+      </item>
+      <item path="fpsgame/fps.cpp" ex="false" tool="1" flavor2="0">
+        <ccTool flags="1">
+        </ccTool>
+      </item>
+      <item path="fpsgame/monster.cpp" ex="false" tool="1" flavor2="0">
+        <ccTool flags="1">
+        </ccTool>
+      </item>
+      <item path="fpsgame/movable.cpp" ex="false" tool="1" flavor2="0">
+        <ccTool flags="1">
+        </ccTool>
+      </item>
+      <item path="fpsgame/render.cpp" ex="false" tool="1" flavor2="0">
+        <ccTool flags="1">
+        </ccTool>
+      </item>
+      <item path="fpsgame/scoreboard.cpp" ex="false" tool="1" flavor2="0">
+        <ccTool flags="1">
+        </ccTool>
+      </item>
+      <item path="fpsgame/server.cpp" ex="false" tool="1" flavor2="0">
+        <ccTool flags="1">
+        </ccTool>
+      </item>
+      <item path="fpsgame/waypoint.cpp" ex="false" tool="1" flavor2="0">
+        <ccTool flags="1">
+        </ccTool>
+      </item>
+      <item path="fpsgame/weapon.cpp" ex="false" tool="1" flavor2="0">
+        <ccTool flags="1">
+        </ccTool>
+      </item>
+      <item path="shared/crypto.cpp" ex="false" tool="1" flavor2="0">
+        <ccTool flags="1">
+        </ccTool>
+      </item>
+      <item path="shared/geom.cpp" ex="false" tool="1" flavor2="0">
+        <ccTool flags="1">
+        </ccTool>
+      </item>
+      <item path="shared/glemu.cpp" ex="false" tool="1" flavor2="0">
+        <ccTool flags="1">
+        </ccTool>
+      </item>
+      <item path="shared/stream.cpp" ex="false" tool="1" flavor2="0">
+        <ccTool flags="1">
+        </ccTool>
+      </item>
+      <item path="shared/tools.cpp" ex="false" tool="1" flavor2="0">
+        <ccTool flags="1">
+        </ccTool>
+      </item>
+      <item path="shared/zip.cpp" ex="false" tool="1" flavor2="0">
+        <ccTool flags="1">
+        </ccTool>
+      </item>
+    </conf>
+  </confs>
+</configurationDescriptor>
