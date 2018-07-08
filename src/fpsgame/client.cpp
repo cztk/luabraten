@@ -1610,6 +1610,7 @@ namespace game
                 if(d) unpackeditinfo(d->edit, q.buf, q.maxlen, unpacklen);
                 break;
             }
+            #if PROTOCOL_VERSION >= 260
             case N_UNDO:
             case N_REDO:
             {
@@ -1619,6 +1620,7 @@ namespace game
                 if(d) unpackundo(q.buf, q.maxlen, unpacklen);
                 break;
             }
+            #endif
 
             case N_EDITF:              // coop editing messages
             case N_EDITT:
@@ -1629,6 +1631,7 @@ namespace game
             case N_ROTATE:
             case N_REPLACE:
             case N_DELCUBE:
+            #if PROTOCOL_VERSION >= 260
             case N_EDITVSLOT:
             {
                 if(!d) return;
@@ -1684,6 +1687,7 @@ namespace game
                 }
                 break;
             }
+            #endif
             case N_REMIP:
             {
                 if(!d) return;
