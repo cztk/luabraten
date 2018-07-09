@@ -1,10 +1,10 @@
 CXXFLAGS= -O3 -fomit-frame-pointer -ffast-math
-override CXXFLAGS+= -Wall -fsigned-char -fno-exceptions -fno-rtti
+override CXXFLAGS+= -Wall -fsigned-char -fno-rtti
 
 PLATFORM= $(shell uname -s | tr '[:lower:]' '[:upper:]')
 PLATFORM_PREFIX= native
 
-INCLUDES= -Ishared -Iengine -Ifpsgame -Ienet/include
+INCLUDES= -Ishared -Iengine -Ifpsgame -Ienet/include -Izuckerbraten -Izuckerbraten/lua -I/usr/include/luajit-2.0 -I/usr/local/include/luajit-2.0 -Izuckerbraten/utils
 
 STRIP=
 ifeq (,$(findstring -g,$(CXXFLAGS)))
@@ -13,7 +13,38 @@ ifeq (,$(findstring -pg,$(CXXFLAGS)))
 endif
 endif
 
+
 MV=mv
+
+LUA_OBJS= \
+    zuckerbraten/lib/md5.o \
+    zuckerbraten/utils/time.o \
+    zuckerbraten/utils/files.o \
+    zuckerbraten/utils/zuckerbraten.o \
+    zuckerbraten/net/address.o \
+    zuckerbraten/net/address_mask.o \
+    zuckerbraten/net/address_prefix.o \
+    zuckerbraten/lua/event.o \
+    zuckerbraten/lua/push_function.o \
+    zuckerbraten/lua/library_extensions.o \
+    zuckerbraten/lua/pcall.o \
+    zuckerbraten/lua/error_handler.o \
+    zuckerbraten/lua/push.o \
+    zuckerbraten/lua/register_class.o \
+    zuckerbraten/lua/modules/module.o \
+    zuckerbraten/lua/modules/crypto.o \
+    zuckerbraten/lua/modules/mmdb.o \
+    zuckerbraten/lua/modules/filesystem.o \
+    zuckerbraten/lua/modules/net/module.o \
+    zuckerbraten/lua/modules/net/tcp_socket.o \
+    zuckerbraten/lua/modules/net/weak_ref.o \
+    zuckerbraten/lua/modules/net/ipmask.o \
+    zuckerbraten/lua/modules/net/file_stream.o \
+    zuckerbraten/lua/modules/net/tcp_acceptor.o \
+    zuckerbraten/lua/modules/net/resolver.o \
+    zuckerbraten/lua/modules/net/ssl_context.o \
+    zuckerbraten/lua/modules/net/ssl_tcp_stream.o
+
 
 ifneq (,$(findstring MINGW,$(PLATFORM)))
 WINDRES= windres
@@ -44,7 +75,7 @@ override WINDRES+= -F pe-i386
 endif
 CLIENT_INCLUDES= $(INCLUDES) -Iinclude
 STD_LIBS= -static-libgcc -static-libstdc++
-CLIENT_LIBS= -mwindows $(STD_LIBS) -L$(WINBIN) -L$(WINLIB) -lSDL2 -lSDL2_image -lSDL2_mixer -lzlib1 -lopengl32 -lenet -lws2_32 -lwinmm
+CLIENT_LIBS= -mwindows $(STD_LIBS) -L$(WINBIN) -L$(WINLIB) -lSDL2 -lSDL2_image -lSDL2_mixer -lzlib1 -lopengl32 -lenet -lws2_32 -lwinmm -lluajit-5.1 -lpthread -lssl -lcrypto -lmaxminddb
 else	
 ifneq (,$(findstring DARWIN,$(PLATFORM)))
 ifneq (,$(findstring CROSS,$(PLATFORM)))
@@ -63,10 +94,10 @@ override CXX+= -arch x86_64 -mmacosx-version-min=$(OSXMIN)
 CLIENT_INCLUDES= $(INCLUDES) -Iinclude
 CLIENT_LIBS= -Fxcode/Frameworks -framework SDL2 -framework SDL2_image
 CLIENT_LIBS+= -framework SDL2_mixer -framework CoreAudio -framework AudioToolbox
-CLIENT_LIBS+= -framework AudioUnit -framework OpenGL -framework Cocoa -lz -Lenet -lenet
+CLIENT_LIBS+= -framework AudioUnit -framework OpenGL -framework Cocoa -lz -Lenet -lenet -lluajit-5.1 -lpthread -lssl -lcrypto -lmaxminddb
 else
 CLIENT_INCLUDES= $(INCLUDES) -I/usr/X11R6/include `sdl2-config --cflags`
-CLIENT_LIBS= -Lenet -lenet -L/usr/X11R6/lib -lX11 `sdl2-config --libs` -lSDL2_image -lSDL2_mixer -lz -lGL
+CLIENT_LIBS= -Lenet -lenet -L/usr/X11R6/lib -lX11 `sdl2-config --libs` -lSDL2_image -lSDL2_mixer -lz -lGL -lluajit-5.1 -lpthread -lssl -lcrypto -lmaxminddb
 endif
 endif
 ifeq ($(PLATFORM),LINUX)
@@ -131,8 +162,38 @@ CLIENT_OBJS= \
 	fpsgame/scoreboard.o \
 	fpsgame/server.o \
 	fpsgame/waypoint.o \
-	fpsgame/weapon.o
-
+	fpsgame/weapon.o \
+        zuckerbraten/startup.o \
+        zuckerbraten/scheduler.o \
+        zuckerbraten/lua.o \
+        zuckerbraten/core_bindings.o \
+        zuckerbraten/events.o \
+    zuckerbraten/lib/md5.o \
+    zuckerbraten/utils/time.o \
+    zuckerbraten/utils/files.o \
+    zuckerbraten/utils/zuckerbraten.o \
+    zuckerbraten/net/address.o \
+    zuckerbraten/net/address_mask.o \
+    zuckerbraten/net/address_prefix.o \
+    zuckerbraten/lua/event.o \
+    zuckerbraten/lua/push_function.o \
+    zuckerbraten/lua/library_extensions.o \
+    zuckerbraten/lua/pcall.o \
+    zuckerbraten/lua/error_handler.o \
+    zuckerbraten/lua/push.o \
+    zuckerbraten/lua/register_class.o \
+    zuckerbraten/lua/modules/module.o \
+    zuckerbraten/lua/modules/mmdb.o \
+    zuckerbraten/lua/modules/filesystem.o \
+    zuckerbraten/lua/modules/net/module.o \
+    zuckerbraten/lua/modules/net/tcp_socket.o \
+    zuckerbraten/lua/modules/net/weak_ref.o \
+    zuckerbraten/lua/modules/net/ipmask.o \
+    zuckerbraten/lua/modules/net/file_stream.o \
+    zuckerbraten/lua/modules/net/tcp_acceptor.o \
+    zuckerbraten/lua/modules/net/resolver.o \
+    zuckerbraten/lua/modules/net/ssl_context.o \
+    zuckerbraten/lua/modules/net/ssl_tcp_stream.o
 CLIENT_PCH= shared/cube.h.gch engine/engine.h.gch fpsgame/game.h.gch
 
 ifneq (,$(findstring MINGW,$(PLATFORM)))
@@ -242,6 +303,10 @@ depend:
 	makedepend -Y -Ishared -Iengine -Ifpsgame $(CLIENT_OBJS:.o=.cpp)
 	makedepend -a -o.h.gch -Y -Ishared -Iengine -Ifpsgame $(CLIENT_PCH:.h.gch=.h)
 	makedepend -a -o-standalone.o -Y -DSTANDALONE -Ishared -Iengine -Ifpsgame $(SERVER_MASTER_OBJS:-standalone.o=.cpp)
+
+
+zuckerscheduler: zuckerbraten/scheduler.o 
+  $(CXX) $(CXXFLAGS) -o zuckerscheduler: zuckerbraten/scheduler.o 
 
 # DO NOT DELETE
 

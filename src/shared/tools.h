@@ -1,7 +1,8 @@
 // generic useful stuff for any C++ program
-
 #ifndef _TOOLS_H
 #define _TOOLS_H
+
+#include <string>
 
 #ifdef NULL
 #undef NULL
@@ -35,10 +36,12 @@ typedef unsigned long long int ullong;
 
 void *operator new(size_t, bool);
 void *operator new[](size_t, bool);
+#if 0
 inline void *operator new(size_t, void *p) { return p; }
 inline void *operator new[](size_t, void *p) { return p; }
 inline void operator delete(void *, void *) {}
 inline void operator delete[](void *, void *) {}
+#endif
 
 #ifdef swap
 #undef swap
@@ -1306,6 +1309,42 @@ static inline uchar cubeupper(uchar c)
 }
 extern size_t decodeutf8(uchar *dst, size_t dstlen, const uchar *src, size_t srclen, size_t *carry = NULL);
 extern size_t encodeutf8(uchar *dstbuf, size_t dstlen, const uchar *srcbuf, size_t srclen, size_t *carry = NULL);
+
+extern const char *decodeutf8(const char *src, std::string &buf);
+extern const char *encodeutf8(const char *src, std::string &buf);
+
+class convert2utf8
+{
+    public:
+        convert2utf8(const char *src)
+        {
+            buf.reserve((strlen(src)*4)+1);
+            conv = encodeutf8(src, buf);
+        }
+        const char *str() { return conv; }
+        const std::string &stdstr() { return buf; }
+        size_t length() { return buf.length(); }
+    private:
+        const char *conv;
+        std::string buf;
+};
+
+class convert2cube
+{
+    public:
+        convert2cube(const char *src)
+        {
+            buf.reserve(strlen(src)+1);
+            conv = decodeutf8(src, buf);
+        }
+        const char *str() { return conv; }
+        const std::string &stdstr() { return buf; }
+        size_t length() { return buf.length(); }
+    private:
+        const char *conv;
+        std::string buf;
+};
+
 
 extern string homedir;
 

@@ -1,4 +1,12 @@
+#include "zuckerbraten.hpp"
+#include "utils/zuckerbraten.hpp"
 #include "game.h"
+
+#include "client_functions.hpp"
+lua::event_environment & event_listeners();
+
+#include <asio.hpp>
+asio::io_service & get_main_io_service();
 
 namespace game
 {
@@ -339,6 +347,7 @@ namespace game
 
     void damaged(int damage, fpsent *d, fpsent *actor, bool local)
     {
+        event_fps_damaged(event_listeners(), std::make_tuple(damage,d->state,actor->state,d->health,actor->health,local));
         if((d->state!=CS_ALIVE && d->state != CS_LAGGED && d->state != CS_SPAWNING) || intermission) return;
 
         if(local) damage = d->dodamage(damage);
@@ -534,6 +543,8 @@ namespace game
         player1 = spawnstate(new fpsent);
         filtertext(player1->name, "unnamed", false, false, MAXNAMELEN);
         players.add(player1);
+        init_zuckerbraten();
+        event_started(event_listeners(), std::make_tuple());
     }
 
     VARP(showmodeinfo, 0, 1, 1);
