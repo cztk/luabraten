@@ -16,34 +16,42 @@ endif
 
 MV=mv
 
-LUA_OBJS= \
-    zuckerbraten/lib/md5.o \
-    zuckerbraten/utils/time.o \
-    zuckerbraten/utils/files.o \
-    zuckerbraten/utils/zuckerbraten.o \
-    zuckerbraten/net/address.o \
-    zuckerbraten/net/address_mask.o \
-    zuckerbraten/net/address_prefix.o \
-    zuckerbraten/lua/event.o \
-    zuckerbraten/lua/push_function.o \
-    zuckerbraten/lua/library_extensions.o \
-    zuckerbraten/lua/pcall.o \
-    zuckerbraten/lua/error_handler.o \
-    zuckerbraten/lua/push.o \
-    zuckerbraten/lua/register_class.o \
-    zuckerbraten/lua/modules/module.o \
-    zuckerbraten/lua/modules/crypto.o \
-    zuckerbraten/lua/modules/mmdb.o \
-    zuckerbraten/lua/modules/filesystem.o \
-    zuckerbraten/lua/modules/net/module.o \
-    zuckerbraten/lua/modules/net/tcp_socket.o \
-    zuckerbraten/lua/modules/net/weak_ref.o \
-    zuckerbraten/lua/modules/net/ipmask.o \
-    zuckerbraten/lua/modules/net/file_stream.o \
-    zuckerbraten/lua/modules/net/tcp_acceptor.o \
-    zuckerbraten/lua/modules/net/resolver.o \
-    zuckerbraten/lua/modules/net/ssl_context.o \
-    zuckerbraten/lua/modules/net/ssl_tcp_stream.o
+ZUCKER_OBJS=\
+        zuckerbraten/startup.o \
+        zuckerbraten/scheduler.o \
+        zuckerbraten/lua.o \
+        zuckerbraten/core_bindings.o \
+        zuckerbraten/events.o \
+        zuckerbraten/lib/md5.o \
+        zuckerbraten/utils/time.o \
+        zuckerbraten/utils/files.o \
+        zuckerbraten/utils/zuckerbraten.o \
+        zuckerbraten/net/address.o \
+        zuckerbraten/net/address_mask.o \
+        zuckerbraten/net/address_prefix.o \
+        zuckerbraten/lua/event.o \
+        zuckerbraten/lua/push_function.o \
+        zuckerbraten/lua/library_extensions.o \
+        zuckerbraten/lua/pcall.o \
+        zuckerbraten/lua/error_handler.o \
+        zuckerbraten/lua/push.o \
+        zuckerbraten/lua/register_class.o \
+        zuckerbraten/lua/modules/module.o \
+        zuckerbraten/lua/modules/mmdb.o \
+        zuckerbraten/lua/modules/filesystem.o \
+        zuckerbraten/lua/modules/net/module.o \
+        zuckerbraten/lua/modules/net/tcp_socket.o \
+        zuckerbraten/lua/modules/net/weak_ref.o \
+        zuckerbraten/lua/modules/net/ipmask.o \
+        zuckerbraten/lua/modules/net/file_stream.o \
+        zuckerbraten/lua/modules/net/tcp_acceptor.o \
+        zuckerbraten/lua/modules/net/resolver.o \
+        zuckerbraten/lua/modules/net/ssl_context.o \
+        zuckerbraten/lua/modules/net/ssl_tcp_stream.o
+
+LBITS := $(shell getconf LONG_BIT)
+ifeq ($(LBITS),64)
+endif
 
 
 ifneq (,$(findstring MINGW,$(PLATFORM)))
@@ -162,38 +170,8 @@ CLIENT_OBJS= \
 	fpsgame/scoreboard.o \
 	fpsgame/server.o \
 	fpsgame/waypoint.o \
-	fpsgame/weapon.o \
-        zuckerbraten/startup.o \
-        zuckerbraten/scheduler.o \
-        zuckerbraten/lua.o \
-        zuckerbraten/core_bindings.o \
-        zuckerbraten/events.o \
-    zuckerbraten/lib/md5.o \
-    zuckerbraten/utils/time.o \
-    zuckerbraten/utils/files.o \
-    zuckerbraten/utils/zuckerbraten.o \
-    zuckerbraten/net/address.o \
-    zuckerbraten/net/address_mask.o \
-    zuckerbraten/net/address_prefix.o \
-    zuckerbraten/lua/event.o \
-    zuckerbraten/lua/push_function.o \
-    zuckerbraten/lua/library_extensions.o \
-    zuckerbraten/lua/pcall.o \
-    zuckerbraten/lua/error_handler.o \
-    zuckerbraten/lua/push.o \
-    zuckerbraten/lua/register_class.o \
-    zuckerbraten/lua/modules/module.o \
-    zuckerbraten/lua/modules/mmdb.o \
-    zuckerbraten/lua/modules/filesystem.o \
-    zuckerbraten/lua/modules/net/module.o \
-    zuckerbraten/lua/modules/net/tcp_socket.o \
-    zuckerbraten/lua/modules/net/weak_ref.o \
-    zuckerbraten/lua/modules/net/ipmask.o \
-    zuckerbraten/lua/modules/net/file_stream.o \
-    zuckerbraten/lua/modules/net/tcp_acceptor.o \
-    zuckerbraten/lua/modules/net/resolver.o \
-    zuckerbraten/lua/modules/net/ssl_context.o \
-    zuckerbraten/lua/modules/net/ssl_tcp_stream.o
+	fpsgame/weapon.o $(ZUCKER_OBJS)
+
 CLIENT_PCH= shared/cube.h.gch engine/engine.h.gch fpsgame/game.h.gch
 
 ifneq (,$(findstring MINGW,$(PLATFORM)))

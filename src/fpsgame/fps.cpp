@@ -347,13 +347,14 @@ namespace game
 
     void damaged(int damage, fpsent *d, fpsent *actor, bool local)
     {
+        fpsent *h = hudplayer();
+
         event_fps_damaged(event_listeners(), std::make_tuple(damage,d->state,actor->state,d->health,actor->health,local));
         if((d->state!=CS_ALIVE && d->state != CS_LAGGED && d->state != CS_SPAWNING) || intermission) return;
 
         if(local) damage = d->dodamage(damage);
         else if(actor==player1) return;
 
-        fpsent *h = hudplayer();
         if(h!=player1 && actor==h && d!=actor)
         {
             if(hitsound && lasthit != lastmillis) playsound(S_HIT);
