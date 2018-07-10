@@ -2,7 +2,7 @@
 #include "utils/zuckerbraten.hpp"
 #include "game.h"
 
-#include "client_functions.hpp"
+#include "game_client_functions.hpp"
 lua::event_environment & event_listeners();
 
 #include <asio.hpp>
@@ -2115,5 +2115,6 @@ namespace game
         player1->resetinterp();
     }
     COMMAND(gotosel, "");
+
 }
 

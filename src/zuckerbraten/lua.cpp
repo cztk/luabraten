@@ -6,6 +6,12 @@
 #include "lua/modules.hpp"
 #include "lua/library_extensions.hpp"
 #include "lua/error_handler.hpp"
+#include <string.h>
+#include "../include/LuaBridge/LuaBridge.h"
+#include "../engine/engine.h"
+#include "../fpsgame/game.h"
+
+using namespace luabridge;
 
 static void load_lua_modules();
 static void load_extra_os_functions(lua_State *);
@@ -14,11 +20,19 @@ static lua_State * L = NULL;
 static lua::event_environment * event_environment = NULL;
 static int lua_stack_size = 0;
 
+#include "game_bratenbinder.cpp"
+
+void init_bridge() {
+    luabridge_game(L);
+}
+
 void init_lua()
 {
     L = luaL_newstate();
     luaL_openlibs(L);
-    
+
+    init_bridge();
+
     load_extra_os_functions(L);
     
 #ifndef NO_CORE_TABLE
@@ -45,6 +59,7 @@ void init_lua()
 #endif
 
     load_lua_modules();
+
 }
 
 void shutdown_lua()

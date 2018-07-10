@@ -6,6 +6,7 @@
 void init_zuckerbraten();
 void reload_zuckerbraten();
 void restart_zuckerbraten();
+void bindgame();
 
 // Scripting functions
 void init_lua();
@@ -29,7 +30,6 @@ enum{
     SHUTDOWN_RESTART,
     SHUTDOWN_RELOAD
 };
-
 
 
 #endif

@@ -15,6 +15,8 @@ extern lua::event< std::tuple<> >                                         event_
 // fps
 extern lua::event< std::tuple<int, int, int, int, int, bool> >        event_fps_damaged;
 
+extern lua::event< std::tuple<const char *> >        event_fps_luacmd;
+
 void register_event_idents(lua::event_environment &);
 
 #endif

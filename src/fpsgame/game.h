@@ -2,6 +2,7 @@
 #define __GAME_H__
 
 #include "cube.h"
+#include "../include/LuaBridge/LuaBridge.h"
 
 #define PROTOCOL_VERSION 259            // bump when protocol changes
 
@@ -672,6 +673,7 @@ namespace entities
 
 namespace game
 {
+
     struct clientmode
     {
         virtual ~clientmode() {}
@@ -756,6 +758,8 @@ namespace game
     extern void forceintermission();
     extern void c2sinfo(bool force = false);
     extern void sendposition(fpsent *d, bool reliable = false);
+
+    extern void printname();
 
     // monster
     struct monster;

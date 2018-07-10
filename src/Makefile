@@ -1,5 +1,5 @@
 CXXFLAGS= -O3 -fomit-frame-pointer -ffast-math
-override CXXFLAGS+= -Wall -fsigned-char -fno-rtti
+override CXXFLAGS+= -Wall -fsigned-char
 
 PLATFORM= $(shell uname -s | tr '[:lower:]' '[:upper:]')
 PLATFORM_PREFIX= native
@@ -291,6 +291,17 @@ zuckerscheduler: zuckerbraten/scheduler.o
 shared/crypto.o: shared/cube.h shared/tools.h shared/geom.h shared/ents.h
 shared/crypto.o: shared/command.h shared/glexts.h shared/glemu.h
 shared/crypto.o: shared/iengine.h shared/igame.h
+shared/crypto.o: include/LuaBridge/LuaBridge.h
+shared/crypto.o: include/LuaBridge/detail/LuaHelpers.h
+shared/crypto.o: include/LuaBridge/detail/TypeTraits.h
+shared/crypto.o: include/LuaBridge/detail/TypeList.h
+shared/crypto.o: include/LuaBridge/detail/FuncTraits.h
+shared/crypto.o: include/LuaBridge/detail/Constructor.h
+shared/crypto.o: include/LuaBridge/detail/Stack.h
+shared/crypto.o: include/LuaBridge/detail/ClassInfo.h
+shared/crypto.o: include/LuaBridge/detail/Userdata.h
+shared/crypto.o: include/LuaBridge/detail/CFunctions.h
+shared/crypto.o: include/LuaBridge/detail/Namespace.h shared/iengine.h
 shared/geom.o: shared/cube.h shared/tools.h shared/geom.h shared/ents.h
 shared/geom.o: shared/command.h shared/glexts.h shared/glemu.h
 shared/geom.o: shared/iengine.h shared/igame.h
@@ -300,9 +311,31 @@ shared/glemu.o: shared/iengine.h shared/igame.h
 shared/stream.o: shared/cube.h shared/tools.h shared/geom.h shared/ents.h
 shared/stream.o: shared/command.h shared/glexts.h shared/glemu.h
 shared/stream.o: shared/iengine.h shared/igame.h
+shared/stream.o: include/LuaBridge/LuaBridge.h
+shared/stream.o: include/LuaBridge/detail/LuaHelpers.h
+shared/stream.o: include/LuaBridge/detail/TypeTraits.h
+shared/stream.o: include/LuaBridge/detail/TypeList.h
+shared/stream.o: include/LuaBridge/detail/FuncTraits.h
+shared/stream.o: include/LuaBridge/detail/Constructor.h
+shared/stream.o: include/LuaBridge/detail/Stack.h
+shared/stream.o: include/LuaBridge/detail/ClassInfo.h
+shared/stream.o: include/LuaBridge/detail/Userdata.h
+shared/stream.o: include/LuaBridge/detail/CFunctions.h
+shared/stream.o: include/LuaBridge/detail/Namespace.h shared/iengine.h
 shared/tools.o: shared/cube.h shared/tools.h shared/geom.h shared/ents.h
 shared/tools.o: shared/command.h shared/glexts.h shared/glemu.h
 shared/tools.o: shared/iengine.h shared/igame.h
+shared/tools.o: include/LuaBridge/LuaBridge.h
+shared/tools.o: include/LuaBridge/detail/LuaHelpers.h
+shared/tools.o: include/LuaBridge/detail/TypeTraits.h
+shared/tools.o: include/LuaBridge/detail/TypeList.h
+shared/tools.o: include/LuaBridge/detail/FuncTraits.h
+shared/tools.o: include/LuaBridge/detail/Constructor.h
+shared/tools.o: include/LuaBridge/detail/Stack.h
+shared/tools.o: include/LuaBridge/detail/ClassInfo.h
+shared/tools.o: include/LuaBridge/detail/Userdata.h
+shared/tools.o: include/LuaBridge/detail/CFunctions.h
+shared/tools.o: include/LuaBridge/detail/Namespace.h shared/iengine.h
 shared/zip.o: shared/cube.h shared/tools.h shared/geom.h shared/ents.h
 shared/zip.o: shared/command.h shared/glexts.h shared/glemu.h
 shared/zip.o: shared/iengine.h shared/igame.h
@@ -334,6 +367,17 @@ engine/command.o: shared/ents.h shared/command.h shared/glexts.h
 engine/command.o: shared/glemu.h shared/iengine.h shared/igame.h
 engine/command.o: engine/world.h engine/octa.h engine/lightmap.h engine/bih.h
 engine/command.o: engine/texture.h engine/model.h
+engine/command.o: include/LuaBridge/LuaBridge.h
+engine/command.o: include/LuaBridge/detail/LuaHelpers.h
+engine/command.o: include/LuaBridge/detail/TypeTraits.h
+engine/command.o: include/LuaBridge/detail/TypeList.h
+engine/command.o: include/LuaBridge/detail/FuncTraits.h
+engine/command.o: include/LuaBridge/detail/Constructor.h
+engine/command.o: include/LuaBridge/detail/Stack.h
+engine/command.o: include/LuaBridge/detail/ClassInfo.h
+engine/command.o: include/LuaBridge/detail/Userdata.h
+engine/command.o: include/LuaBridge/detail/CFunctions.h
+engine/command.o: include/LuaBridge/detail/Namespace.h shared/iengine.h
 engine/console.o: engine/engine.h shared/cube.h shared/tools.h shared/geom.h
 engine/console.o: shared/ents.h shared/command.h shared/glexts.h
 engine/console.o: shared/glemu.h shared/iengine.h shared/igame.h
@@ -462,6 +506,17 @@ engine/server.o: shared/ents.h shared/command.h shared/glexts.h
 engine/server.o: shared/glemu.h shared/iengine.h shared/igame.h
 engine/server.o: engine/world.h engine/octa.h engine/lightmap.h engine/bih.h
 engine/server.o: engine/texture.h engine/model.h
+engine/server.o: include/LuaBridge/LuaBridge.h
+engine/server.o: include/LuaBridge/detail/LuaHelpers.h
+engine/server.o: include/LuaBridge/detail/TypeTraits.h
+engine/server.o: include/LuaBridge/detail/TypeList.h
+engine/server.o: include/LuaBridge/detail/FuncTraits.h
+engine/server.o: include/LuaBridge/detail/Constructor.h
+engine/server.o: include/LuaBridge/detail/Stack.h
+engine/server.o: include/LuaBridge/detail/ClassInfo.h
+engine/server.o: include/LuaBridge/detail/Userdata.h
+engine/server.o: include/LuaBridge/detail/CFunctions.h
+engine/server.o: include/LuaBridge/detail/Namespace.h shared/iengine.h
 engine/serverbrowser.o: engine/engine.h shared/cube.h shared/tools.h
 engine/serverbrowser.o: shared/geom.h shared/ents.h shared/command.h
 engine/serverbrowser.o: shared/glexts.h shared/glemu.h shared/iengine.h
@@ -504,6 +559,17 @@ engine/worldio.o: shared/ents.h shared/command.h shared/glexts.h
 engine/worldio.o: shared/glemu.h shared/iengine.h shared/igame.h
 engine/worldio.o: engine/world.h engine/octa.h engine/lightmap.h engine/bih.h
 engine/worldio.o: engine/texture.h engine/model.h
+engine/worldio.o: include/LuaBridge/LuaBridge.h
+engine/worldio.o: include/LuaBridge/detail/LuaHelpers.h
+engine/worldio.o: include/LuaBridge/detail/TypeTraits.h
+engine/worldio.o: include/LuaBridge/detail/TypeList.h
+engine/worldio.o: include/LuaBridge/detail/FuncTraits.h
+engine/worldio.o: include/LuaBridge/detail/Constructor.h
+engine/worldio.o: include/LuaBridge/detail/Stack.h
+engine/worldio.o: include/LuaBridge/detail/ClassInfo.h
+engine/worldio.o: include/LuaBridge/detail/Userdata.h
+engine/worldio.o: include/LuaBridge/detail/CFunctions.h
+engine/worldio.o: include/LuaBridge/detail/Namespace.h shared/iengine.h
 fpsgame/ai.o: fpsgame/game.h shared/cube.h shared/tools.h shared/geom.h
 fpsgame/ai.o: shared/ents.h shared/command.h shared/glexts.h shared/glemu.h
 fpsgame/ai.o: shared/iengine.h shared/igame.h fpsgame/ai.h
@@ -515,6 +581,17 @@ fpsgame/entities.o: fpsgame/game.h shared/cube.h shared/tools.h shared/geom.h
 fpsgame/entities.o: shared/ents.h shared/command.h shared/glexts.h
 fpsgame/entities.o: shared/glemu.h shared/iengine.h shared/igame.h
 fpsgame/entities.o: fpsgame/ai.h
+fpsgame/entities.o: include/LuaBridge/LuaBridge.h
+fpsgame/entities.o: include/LuaBridge/detail/LuaHelpers.h
+fpsgame/entities.o: include/LuaBridge/detail/TypeTraits.h
+fpsgame/entities.o: include/LuaBridge/detail/TypeList.h
+fpsgame/entities.o: include/LuaBridge/detail/FuncTraits.h
+fpsgame/entities.o: include/LuaBridge/detail/Constructor.h
+fpsgame/entities.o: include/LuaBridge/detail/Stack.h
+fpsgame/entities.o: include/LuaBridge/detail/ClassInfo.h
+fpsgame/entities.o: include/LuaBridge/detail/Userdata.h
+fpsgame/entities.o: include/LuaBridge/detail/CFunctions.h
+fpsgame/entities.o: include/LuaBridge/detail/Namespace.h shared/iengine.h
 fpsgame/fps.o: fpsgame/game.h shared/cube.h shared/tools.h shared/geom.h
 fpsgame/fps.o: shared/ents.h shared/command.h shared/glexts.h shared/glemu.h
 fpsgame/fps.o: shared/iengine.h shared/igame.h fpsgame/ai.h
@@ -538,6 +615,17 @@ fpsgame/server.o: shared/ents.h shared/command.h shared/glexts.h
 fpsgame/server.o: shared/glemu.h shared/iengine.h shared/igame.h fpsgame/ai.h
 fpsgame/server.o: fpsgame/capture.h fpsgame/ctf.h fpsgame/collect.h
 fpsgame/server.o: fpsgame/extinfo.h fpsgame/aiman.h
+fpsgame/server.o: include/LuaBridge/LuaBridge.h
+fpsgame/server.o: include/LuaBridge/detail/LuaHelpers.h
+fpsgame/server.o: include/LuaBridge/detail/TypeTraits.h
+fpsgame/server.o: include/LuaBridge/detail/TypeList.h
+fpsgame/server.o: include/LuaBridge/detail/FuncTraits.h
+fpsgame/server.o: include/LuaBridge/detail/Constructor.h
+fpsgame/server.o: include/LuaBridge/detail/Stack.h
+fpsgame/server.o: include/LuaBridge/detail/ClassInfo.h
+fpsgame/server.o: include/LuaBridge/detail/Userdata.h
+fpsgame/server.o: include/LuaBridge/detail/CFunctions.h
+fpsgame/server.o: include/LuaBridge/detail/Namespace.h shared/iengine.h
 fpsgame/waypoint.o: fpsgame/game.h shared/cube.h shared/tools.h shared/geom.h
 fpsgame/waypoint.o: shared/ents.h shared/command.h shared/glexts.h
 fpsgame/waypoint.o: shared/glemu.h shared/iengine.h shared/igame.h
@@ -588,3 +676,21 @@ fpsgame/server-standalone.o: fpsgame/aiman.h
 engine/master-standalone.o: shared/cube.h shared/tools.h shared/geom.h
 engine/master-standalone.o: shared/ents.h shared/command.h shared/iengine.h
 engine/master-standalone.o: shared/igame.h
+
+zuckerbraten/lua.o: fpsgame/game.h shared/cube.h
+zuckerbraten/lua.o: enet/include/enet/enet.h enet/include/enet/unix.h
+zuckerbraten/lua.o: enet/include/enet/types.h enet/include/enet/protocol.h
+zuckerbraten/lua.o: enet/include/enet/list.h enet/include/enet/callbacks.h
+zuckerbraten/lua.o: shared/tools.h shared/geom.h shared/ents.h
+zuckerbraten/lua.o: include/LuaBridge/LuaBridge.h
+zuckerbraten/lua.o: include/LuaBridge/detail/LuaHelpers.h
+zuckerbraten/lua.o: include/LuaBridge/detail/TypeTraits.h
+zuckerbraten/lua.o: include/LuaBridge/detail/TypeList.h
+zuckerbraten/lua.o: include/LuaBridge/detail/FuncTraits.h
+zuckerbraten/lua.o: include/LuaBridge/detail/Constructor.h
+zuckerbraten/lua.o: include/LuaBridge/detail/Stack.h
+zuckerbraten/lua.o: include/LuaBridge/detail/ClassInfo.h
+zuckerbraten/lua.o: include/LuaBridge/detail/Userdata.h
+zuckerbraten/lua.o: include/LuaBridge/detail/CFunctions.h
+zuckerbraten/lua.o: include/LuaBridge/detail/Namespace.h shared/iengine.h
+zuckerbraten/lua.o: shared/command.h

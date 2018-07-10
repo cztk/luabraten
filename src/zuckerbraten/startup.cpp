@@ -1,7 +1,7 @@
 #include "zuckerbraten.hpp"
 #include "utils/files.hpp"
 #include "cube.h"
-#include "client_functions.hpp"
+#include "game_client_functions.hpp"
 #include "main_io_service.hpp"
 #include <iostream>
 #include <thread>
@@ -9,7 +9,6 @@
 bool reloaded = false;
 
 static std::thread::id main_thread;
-
 /**
     Initializes everything in hopmod. This function is called at server startup and server reload.
 */

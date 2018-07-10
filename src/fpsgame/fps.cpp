@@ -2,7 +2,7 @@
 #include "utils/zuckerbraten.hpp"
 #include "game.h"
 
-#include "client_functions.hpp"
+#include "game_client_functions.hpp"
 lua::event_environment & event_listeners();
 
 #include <asio.hpp>
@@ -1090,5 +1090,5 @@ namespace game
 
         execfile("auth.cfg", false);
     }
+    #include "game_client_functions.cpp"
 }
-

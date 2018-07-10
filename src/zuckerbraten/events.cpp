@@ -13,6 +13,8 @@ lua::event< std::tuple<> >                                         event_interva
 // fps
 lua::event< std::tuple<int, int, int, int, int, bool> >        event_fps_damaged("fps_damaged");
 
+lua::event< std::tuple<const char *> >                         event_fps_luacmd("fps_luacmd");
+
 void register_event_idents(lua::event_environment & env)
 {
     lua::event_base * events[] = {
@@ -27,6 +29,8 @@ void register_event_idents(lua::event_environment & env)
       & event_interval,
 
       & event_fps_damaged,
+
+      &event_fps_luacmd,
 
       NULL
     };
