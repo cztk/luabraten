@@ -17,11 +17,20 @@ void init_zuckerbraten()
 {
     main_thread = std::this_thread::get_id();
 
+    #ifdef STANDALONE
+    temp_file_printf("log/zucker_serv.pid", "%i\n", getpid());
+    #else
     temp_file_printf("log/zucker_client.pid", "%i\n", getpid());
+    #endif
 
     init_lua();
 
-    static const char * INIT_SCRIPT = "script/zuckerbraten/client_init.lua";
+    #ifdef STANDALONE
+    static const char * INIT_SCRIPT = "script/zuckerserv/init.lua";
+    #else
+    static const char * INIT_SCRIPT = "script/zuckerbraten/init.lua";
+    #endif
+
 
     lua_State * L = get_lua_state();
     if(luaL_loadfile(L, INIT_SCRIPT) == 0)

@@ -21,11 +21,11 @@ exec(script_base_dir.."/event.lua")
 exec(script_base_dir.."/braten.lua")
 exec(script_base_dir .. "/logging_base.lua")
 exec(script_base_dir.."/exec.lua")
-
-
-exec(script_base_dir.."/clientconfig.lua")
 exec(script_base_dir.."/utils.lua")
 exec(script_base_dir.."/tables.lua")
+
+braten.modules_avail_dir = "./script/zuckerbraten/modules-available"
+braten.modules_enabled_dir = "./script/zuckerbraten/modules-enabled"
 exec(script_base_dir.."/module.lua")
 
 exec_if_found("conf/client_conf.lua")

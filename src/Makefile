@@ -265,11 +265,11 @@ cube2font: shared/cube2font.o
 	$(CXX) $(CXXFLAGS) -o cube2font shared/cube2font.o `freetype-config --libs` -lz
 
 install: all
-	cp sauer_client	../bin_unix/$(PLATFORM_PREFIX)_client
-	cp sauer_server	../bin_unix/$(PLATFORM_PREFIX)_server
+	cp sauer_client	../bin_unix/$(PLATFORM_PREFIX)_ztklient
+	cp sauer_server	../bin_unix/$(PLATFORM_PREFIX)_zuckerserv
 ifneq (,$(STRIP))
-	$(STRIP) ../bin_unix/$(PLATFORM_PREFIX)_client
-	$(STRIP) ../bin_unix/$(PLATFORM_PREFIX)_server
+	$(STRIP) ../bin_unix/$(PLATFORM_PREFIX)_ztklient
+	$(STRIP) ../bin_unix/$(PLATFORM_PREFIX)_zuckerserv
 endif
 endif
 

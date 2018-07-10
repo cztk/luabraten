@@ -19,3 +19,8 @@ CTestTestfile.cmake
 /sauerbraten_unix
 /server-init.cfg
 /server.bat
+/src/enet/Makefile
+/src/nbproject
+/log/client.log
+/log/admin.log
+/log/zucker_client.pid
