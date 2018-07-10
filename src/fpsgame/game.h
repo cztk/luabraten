@@ -2,7 +2,6 @@
 #define __GAME_H__
 
 #include "cube.h"
-#include "../include/LuaBridge/LuaBridge.h"
 
 #define PROTOCOL_VERSION 259            // bump when protocol changes
 
