@@ -11,13 +11,11 @@ void bind_core_constants(lua_State * L, int T)
 {
 // game.h
     bind_function(L, T, "CON_CHAT", get_constant<int(CON_CHAT)>);
-    bind_function(L, T, "CON_TEAMCHAT", get_constant<CON_TEAMCHAT>);
-    bind_function(L, T, "CON_GAMEINFO", get_constant<CON_GAMEINFO>);
-    bind_function(L, T, "CON_FRAG_SELF", get_constant<CON_FRAG_SELF>);
-    bind_function(L, T, "CON_FRAG_OTHER", get_constant<CON_FRAG_OTHER>);
-    #ifndef STANDALONE
+    bind_function(L, T, "CON_TEAMCHAT", get_constant<int(CON_TEAMCHAT)>);
+    bind_function(L, T, "CON_GAMEINFO", get_constant<int(CON_GAMEINFO)>);
+    bind_function(L, T, "CON_FRAG_SELF", get_constant<int(CON_FRAG_SELF)>);
+    bind_function(L, T, "CON_FRAG_OTHER", get_constant<int(CON_FRAG_OTHER)>);
     bind_function(L, T, "CON_TEAMKIL", get_constant<int(CON_TEAMKILL)>);
-    #endif
 
     bind_function(L, T, "DISC_NONE", get_constant<DISC_NONE>);
     bind_function(L, T, "DISC_EOP", get_constant<DISC_EOP>);
