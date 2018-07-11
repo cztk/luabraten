@@ -27,3 +27,4 @@ CTestTestfile.cmake
 log/client.log
 log/zucker_client.pid
 src/enet/Makefile
+src/vcpp/

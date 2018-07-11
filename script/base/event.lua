@@ -45,7 +45,7 @@ local function trigger_event(event_id, ...)
     local listeners = event[event_id]
     if not listeners then return end
     
-    local prevent_default = false
+    local prevent_default = -1
     
     for _, listener in pairs(listeners) do
         local pcall_status, result = pcall(listener, unpack({...}))
@@ -55,10 +55,9 @@ local function trigger_event(event_id, ...)
         if not pcall_status then
             braten.log_event_error(event_id, result or "unknown error")
         else
-            prevent_default = prevent_default or (result == true)
+            prevent_default = result
         end
     end
-    
     return prevent_default
 end
 

@@ -1515,7 +1515,6 @@ namespace game
                 target->armour = armour;
                 target->health = health;
                 if(target->state == CS_ALIVE && actor != player1) target->lastpain = lastmillis;
-                event_fps_damaged(event_listeners(), std::make_tuple(tcn,acn,damage,armour,health,false));
                 damaged(damage, target, actor, false);
                 break;
             }

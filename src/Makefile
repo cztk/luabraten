@@ -1,4 +1,5 @@
-CXXFLAGS= -O3 -fomit-frame-pointer -ffast-math
+CXXFLAGS= -O4 -fomit-frame-pointer -ffast-math -fno-rtti
+debug: CXXFLAGS= -O0 -fomit-frame-pointer -ffast-math
 override CXXFLAGS+= -Wall -fsigned-char
 
 PLATFORM= $(shell uname -s | tr '[:lower:]' '[:upper:]')
@@ -212,13 +213,12 @@ CLIENT_OBJS+= xcode/macutils.o xcode/main.o xcode/Launcher.o
 	$(CXX) $(CXXFLAGS) -c -o $@ $<
 endif
 
-debug: CXXFLAGS += -DDEBUG -g
-debug: CCFLAGS += -DDEBUG -g
-debug: all
-
 default: all
 
 all: client server
+
+debug: CXXFLAGS += -DDEBUG -g 
+debug: all
 
 clean:
 	-$(RM) $(CLIENT_PCH) $(CLIENT_OBJS) $(SERVER_MASTER_OBJS) sauer_client sauer_server sauer_master

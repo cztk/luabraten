@@ -50,10 +50,12 @@ public:
     {
         
     }
-    
-    bool operator()(event_environment & environment, const Tuple & args)
+    int prevent_default = -1;
+
+    int operator()(event_environment & environment, const Tuple & args)
     {
-        if(environment.is_ready() == false) return false;
+        int returnvalue = prevent_default;
+        if(environment.is_ready() == false) return returnvalue;
         
         lua_State * L = environment.push_listeners_table(text_id(), numeric_id());
         assert(L && lua_type(L, -1) == LUA_TTABLE);
@@ -63,8 +65,6 @@ public:
         
         lua_pushvalue(L, -2);
         
-        bool prevent_default = false;
-        
         lua_pushnil(L);
         while (lua_next(L, -2) != 0)
         {
@@ -72,7 +72,7 @@ public:
             {
                 lua::push(L, args);
                 if(lua::pcall(L, std::tuple_size<Tuple>::value, 1, error_function) == 0)
-                    prevent_default = prevent_default || lua_toboolean(L, -1);
+                    returnvalue = lua_tonumber(L, -1);
                 else 
                     environment.log_error(text_id(), lua_tostring(L, -1));
             }
@@ -81,11 +81,10 @@ public:
         
         lua_pop(L, 3);
         
-        return prevent_default;
+        return returnvalue;
     }
 };
 
 } //namespace lua
 
 #endif
-

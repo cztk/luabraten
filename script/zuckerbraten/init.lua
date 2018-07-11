@@ -19,6 +19,7 @@ script_base_dir = "script/base"
 exec(script_base_dir .. "/pcall.lua")
 exec(script_base_dir.."/event.lua")
 exec(script_base_dir.."/braten.lua")
+exec(script_base_dir.."/ffi.lua")
 exec(script_base_dir .. "/logging_base.lua")
 exec(script_base_dir.."/exec.lua")
 exec(script_base_dir.."/utils.lua")
@@ -31,7 +32,7 @@ exec(script_base_dir.."/module.lua")
 exec_if_found("conf/client_conf.lua")
 
 
-braten.event_handler("started", function()
+braten.event_handler("fps_gamestarted", function()
     braten.log_status("meep meep")
 end)
 

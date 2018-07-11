@@ -349,7 +349,11 @@ namespace game
     {
         fpsent *h = hudplayer();
 
-        event_fps_damaged(event_listeners(), std::make_tuple(damage,d->state,actor->state,d->health,actor->health,local));
+        if(0 < event_fps_damaged(event_listeners(), std::make_tuple(damage,d->clientnum,actor->clientnum,h->clientnum,local)))
+        {
+            return;
+        }
+
         if((d->state!=CS_ALIVE && d->state != CS_LAGGED && d->state != CS_SPAWNING) || intermission) return;
 
         if(local) damage = d->dodamage(damage);
@@ -380,6 +384,11 @@ namespace game
 
     void deathstate(fpsent *d, bool restore)
     {
+        if(0 < event_fps_deathstate(event_listeners(), std::make_tuple(d->clientnum,restore)))
+        {
+            return;
+        }
+
         d->state = CS_DEAD;
         d->lastpain = lastmillis;
         if(!restore) gibeffect(max(-d->health, 0), d->vel, d);
@@ -407,6 +416,11 @@ namespace game
 
     void killed(fpsent *d, fpsent *actor)
     {
+        if(0 < event_fps_killed(event_listeners(), std::make_tuple(d->clientnum,actor->clientnum)))
+        {
+            return;
+        }
+
         if(d->state==CS_EDITING)
         {
             d->editstate = CS_DEAD;
@@ -447,7 +461,7 @@ namespace game
             else conoutf(contype, "\f2%s fragged %s", aname, dname);
         }
         deathstate(d);
-		ai::killed(d, actor);
+        ai::killed(d, actor);
     }
 
     void timeupdate(int secs)
@@ -458,6 +472,10 @@ namespace game
         }
         else
         {
+            if(0 < event_fps_start_intermission(event_listeners(), std::make_tuple()))
+            {
+                return;
+            }
             intermission = true;
             player1->attacking = false;
             if(cmode) cmode->gameover();
@@ -472,8 +490,8 @@ namespace game
 
             showscores(true);
             disablezoom();
-            
             if(identexists("intermission")) execute("intermission");
+            event_fps_intermission(event_listeners(), std::make_tuple());
         }
     }
 
@@ -488,6 +506,7 @@ namespace game
 
     fpsent *newclient(int cn)   // ensure valid entity
     {
+        
         if(cn < 0 || cn > max(0xFF, MAXCLIENTS + MAXBOTS))
         {
             neterr("clientnum", false);
@@ -504,6 +523,8 @@ namespace game
             clients[cn] = d;
             players.add(d);
         }
+        event_fps_newclient(event_listeners(), std::make_tuple(cn));
+
         return clients[cn];
     }
 
@@ -516,6 +537,7 @@ namespace game
     void clientdisconnected(int cn, bool notify)
     {
         if(!clients.inrange(cn)) return;
+        event_fps_clientdisconnected(event_listeners(), std::make_tuple(cn, notify));
         if(following==cn)
         {
             if(followdir) nextfollow(followdir);
@@ -536,6 +558,10 @@ namespace game
 
     void clearclients(bool notify)
     {
+        if(0 < event_fps_clearclients(event_listeners(), std::make_tuple(notify)))
+        {
+            return;
+        }
         loopv(clients) if(clients[i]) clientdisconnected(i, notify);
     }
 
@@ -545,13 +571,17 @@ namespace game
         filtertext(player1->name, "unnamed", false, false, MAXNAMELEN);
         players.add(player1);
         init_zuckerbraten();
-        event_started(event_listeners(), std::make_tuple());
+        event_fps_initclient(event_listeners(), std::make_tuple());
     }
 
     VARP(showmodeinfo, 0, 1, 1);
 
     void startgame()
     {
+        if(0 < event_fps_startgame(event_listeners(), std::make_tuple()))
+        {
+            return;
+        }
         clearmovables();
         clearmonsters();
 
@@ -607,15 +637,23 @@ namespace game
         lasthit = 0;
 
         if(identexists("mapstart")) execute("mapstart");
+        event_fps_gamestarted(event_listeners(), std::make_tuple());
     }
 
     void loadingmap(const char *name)
     {
-        if(identexists("playsong")) execute("playsong");
+        if(event_fps_loadingmap(event_listeners(), std::make_tuple()))
+        {
+            if(identexists("playsong")) execute("playsong");
+        }
     }
 
     void startmap(const char *name)   // called just after a map load
     {
+        if(0 < event_fps_startmap(event_listeners(), std::make_tuple(name)))
+        {
+            return;
+        }
         ai::savewaypoints();
         ai::clearwaypoints(true);
 
@@ -635,6 +673,10 @@ namespace game
 
     void physicstrigger(physent *d, bool local, int floorlevel, int waterlevel, int material)
     {
+        if(0 < event_fps_physicstrigger(event_listeners(), std::make_tuple(d->type,local,floorlevel,waterlevel,material)))
+        {
+            return;
+        }
         if(d->type==ENT_INANIMATE) return;
         if     (waterlevel>0) { if(material!=MAT_LAVA) playsound(S_SPLASH1, d==player1 ? NULL : &d->o); }
         else if(waterlevel<0) playsound(material==MAT_LAVA ? S_BURN : S_SPLASH2, d==player1 ? NULL : &d->o);
@@ -653,6 +695,11 @@ namespace game
 
     void msgsound(int n, physent *d)
     {
+        if(0 < event_fps_msgsound(event_listeners(), std::make_tuple(n,d->type)))
+        {
+            return;
+        }
+
         if(!d || d==player1)
         {
             addmsg(N_SOUND, "ci", d, n);
@@ -726,6 +773,11 @@ namespace game
 
     void suicide(physent *d)
     {
+        if(0 < event_fps_suicide(event_listeners(), std::make_tuple(d->type)))
+        {
+            return;
+        }
+
         if(d==player1 || (d->type==ENT_PLAYER && ((fpsent *)d)->ai))
         {
             if(d->state!=CS_ALIVE) return;
@@ -742,10 +794,18 @@ namespace game
     }
     ICOMMAND(suicide, "", (), suicide(player1));
 
-    bool needminimap() { return m_ctf || m_protect || m_hold || m_capture || m_collect; }
+    bool needminimap() {
+         double lua_defined_nmm = event_fps_needminimap(event_listeners(), std::make_tuple());
+         conoutf(CON_GAMEINFO, "\f2needminimap is %f", lua_defined_nmm);
+         return (-1 == lua_defined_nmm) ? m_ctf || m_protect || m_hold || m_capture || m_collect :  (1 == lua_defined_nmm);
+    }
 
     void drawicon(int icon, float x, float y, float sz)
     {
+        if(0 < event_fps_drawicon(event_listeners(), std::make_tuple(icon)))
+        {
+            return;
+        }
         settexture("packages/hud/items.png");
         float tsz = 0.25f, tx = tsz*(icon%4), ty = tsz*(icon/4);
         gle::defvertex(2);
@@ -793,6 +853,10 @@ namespace game
 
     void drawammohud(fpsent *d)
     {
+        if(0 < event_fps_drawammohud(event_listeners(), std::make_tuple(d->clientnum)))
+        {   
+            return;
+        }
         float x = HICON_X + 2*HICON_STEP, y = HICON_Y, sz = HICON_SIZE;
         pushhudmatrix();
         hudmatrix.scale(1/3.2f, 1/3.2f, 1);

@@ -223,5 +223,5 @@ function braten.load_temporary_module(name)
     end
 end
 
-braten.event_handler("started", load_modules_now)
+braten.event_handler("fps_initclient", load_modules_now)
 braten.event_handler("shutdown", unload_all_modules)
