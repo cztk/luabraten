@@ -45,7 +45,7 @@ x86_64|amd64)
   ;;
 esac
 
-if [ -x ${SAUER_BIN}/native_client ]
+if [ -x ${SAUER_BIN}/native_ztklient ]
 then
   SYSTEM_NAME=native_
   MACHINE_NAME=
@@ -63,4 +63,3 @@ else
   echo "3) If the build succeeds, return to this directory and run this script again."
   exit 1
 fi
-
