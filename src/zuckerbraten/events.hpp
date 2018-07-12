@@ -15,7 +15,7 @@ extern lua::event< std::tuple<> >                                         event_
 extern lua::event< std::tuple<> >                                event_fps_initclient;
 extern lua::event< std::tuple<> >                                event_fps_startgame;
 extern lua::event< std::tuple<> >                                event_fps_gamestarted;
-extern lua::event< std::tuple<> >                                event_fps_loadingmap; // can be aborted, just plays a song
+extern lua::event< std::tuple<const char *> >                                event_fps_loadingmap; // can be aborted, just plays a song
 //mapname
 extern lua::event< std::tuple<const char *> >                    event_fps_startmap;
 

@@ -1,6 +1,9 @@
 // main.cpp: initialisation & main loop
-
 #include "engine.h"
+
+#ifdef LUABRATEN
+  #include "extsrc/engine/main.hpp"
+#endif
 
 extern void cleargamma();
 
@@ -1108,6 +1111,10 @@ int main(int argc, char **argv)
     __try {
     #endif
     #endif
+    #endif
+
+    #ifdef LUABRATEN
+    init_zuckerbraten();
     #endif
 
     setlogfile(NULL);

@@ -1,12 +1,9 @@
-#include "zuckerbraten.hpp"
-#include "utils/zuckerbraten.hpp"
 #include "game.h"
 
-#include "game_client_functions.hpp"
-lua::event_environment & event_listeners();
+#ifdef LUABRATEN
+    #include "extsrc/fpsgame/client_functions.hpp"
+#endif
 
-#include <asio.hpp>
-asio::io_service & get_main_io_service();
 
 namespace game
 {

@@ -39,7 +39,7 @@ address_prefix address_prefix::parse(const char * str)
 
         if(c == '.')
         {
-            if(current_token == &tokens[3]) throw std::bad_cast();
+            if(current_token == &tokens[3]) break;
 
             ++current_token;
             new_token = true;
@@ -48,7 +48,7 @@ address_prefix address_prefix::parse(const char * str)
         {
             if( (current_token == &tokens[0] &&
                 str_copy_p == &str_copy[0]) ||
-                current_token == &tokens[4] ) throw std::bad_cast();
+                current_token == &tokens[4] ) break;
 
             current_token = &tokens[4];
             new_token = true;
@@ -56,18 +56,18 @@ address_prefix address_prefix::parse(const char * str)
 
         if(new_token)
         {
-            if(*(str+1)=='\0') throw std::bad_cast();
+            if(*(str+1)=='\0') break;
             *current_token = str_copy_p + 1;
             c = '\0';
         }
 
-        if((c != '\0' && c < '0') || c > '9') throw std::bad_cast();
+        if((c != '\0' && c < '0') || c > '9') break;
 
         *str_copy_p = c;
     }
 
     // str is too big, probably caused by leading zeros.
-    if(*str && str_copy_p == str_copy + sizeof(str_copy) - 1) throw std::bad_cast();
+    if(*str && str_copy_p == str_copy + sizeof(str_copy) - 1) return address_prefix(address(32), address_mask(16));
 
     *str_copy_p = '\0';
 
@@ -75,11 +75,11 @@ address_prefix address_prefix::parse(const char * str)
     unsigned long b = atoi(tokens[1]);
     unsigned long c = atoi(tokens[2]);
     unsigned long d = atoi(tokens[3]);
-    if( a > 255 || b > 255 || c > 255 || d > 255) throw std::bad_cast();
+    if( a > 255 || b > 255 || c > 255 || d > 255) return address_prefix(address(16), address_mask(12));
 
     unsigned long prefix = (a << 24) | (b << 16) | (c << 8) | d;
     int maskbits = tokens[4] ? atoi(tokens[4]) : 32 ;
-    if(maskbits > 32 || maskbits == 0) throw std::bad_cast();
+    if(maskbits > 32 || maskbits == 0) return address_prefix(address(12), address_mask(10));
 
     return address_prefix(address(prefix), address_mask(maskbits));
 }

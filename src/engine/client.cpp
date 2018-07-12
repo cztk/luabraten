@@ -1,25 +1,11 @@
 // client.cpp, mostly network related client game code
 
 #include "engine.h"
-#include <asio.hpp>
-#include <asio/high_resolution_timer.hpp>
-
-using namespace asio;
 
 ENetHost *clienthost = NULL;
 ENetPeer *curpeer = NULL, *connpeer = NULL;
 int connmillis = 0, connattempts = 0, discmillis = 0;
 
-
-io_service main_io_service;
-
-io_service & get_main_io_service()
-{
-    return main_io_service;
-}
-
-high_resolution_timer update_timer(main_io_service);
-high_resolution_timer netstats_timer(main_io_service);
 
 bool multiplayer(bool msg)
 {

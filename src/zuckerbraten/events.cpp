@@ -15,7 +15,7 @@ lua::event< std::tuple<> >                                         event_interva
 lua::event< std::tuple<> >                                event_fps_initclient("fps_initclient");
 lua::event< std::tuple<> >                                event_fps_startgame("fps_startgam");
 lua::event< std::tuple<> >                                event_fps_gamestarted("fps_gamestarted");
-lua::event< std::tuple<> >                                event_fps_loadingmap("fps_loadingmap"); // can be aborted, just plays a song
+lua::event< std::tuple<const char *> >                                event_fps_loadingmap("fps_loadingmap"); // can be aborted, just plays a song
 //mapname
 lua::event< std::tuple<const char *> >                    event_fps_startmap("fps_startmap");
 

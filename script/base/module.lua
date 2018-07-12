@@ -96,13 +96,13 @@ local function create_module_environment()
         return handler_id
     end
     
-    environment.braten.sleep = function(countdown, handler)
-        return add_timer(braten.sleep, countdown, handler)
-    end
+--    environment.braten.sleep = function(countdown, handler)
+--        return add_timer(braten.sleep, countdown, handler)
+--    end
     
-    environment.braten.interval = function(countdown, handler)
-        return add_timer(braten.interval, countdown, handler)
-    end
+--    environment.braten.interval = function(countdown, handler)
+--        return add_timer(braten.interval, countdown, handler)
+--    end
     
     local function cleanup()
         
@@ -118,9 +118,9 @@ local function create_module_environment()
             braten.cancel_event_signal(handler_id)
         end
         
-        for _, handler_id in ipairs(timers) do
-            braten.cancel_timer(handler_id)
-        end
+--        for _, handler_id in ipairs(timers) do
+--            braten.cancel_timer(handler_id)
+--        end
     end
     
     setmetatable(environment.braten, {__index = _G.braten, __newindex = _G.braten})

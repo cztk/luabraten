@@ -1,12 +1,11 @@
-#include "zuckerbraten.hpp"
-#include "utils/zuckerbraten.hpp"
 #include "game.h"
 
-#include "game_client_functions.hpp"
-lua::event_environment & event_listeners();
-
-#include <asio.hpp>
-asio::io_service & get_main_io_service();
+#ifdef LUABRATEN
+    #include "zuckerbraten.hpp"
+    #include "utils/zuckerbraten.hpp"
+    #include "extsrc/fpsgame/fps_functions.hpp"
+    lua::event_environment & event_listeners();
+#endif
 
 namespace game
 {
@@ -349,10 +348,12 @@ namespace game
     {
         fpsent *h = hudplayer();
 
+        #ifdef LUABRATEN
         if(0 < event_fps_damaged(event_listeners(), std::make_tuple(damage,d->clientnum,actor->clientnum,h->clientnum,local)))
         {
             return;
         }
+        #endif
 
         if((d->state!=CS_ALIVE && d->state != CS_LAGGED && d->state != CS_SPAWNING) || intermission) return;
 
@@ -384,10 +385,12 @@ namespace game
 
     void deathstate(fpsent *d, bool restore)
     {
+        #ifdef LUABRATEN
         if(0 < event_fps_deathstate(event_listeners(), std::make_tuple(d->clientnum,restore)))
         {
             return;
         }
+        #endif
 
         d->state = CS_DEAD;
         d->lastpain = lastmillis;
@@ -416,10 +419,12 @@ namespace game
 
     void killed(fpsent *d, fpsent *actor)
     {
+        #ifdef LUABRATEN
         if(0 < event_fps_killed(event_listeners(), std::make_tuple(d->clientnum,actor->clientnum)))
         {
             return;
         }
+        #endif
 
         if(d->state==CS_EDITING)
         {
@@ -472,10 +477,12 @@ namespace game
         }
         else
         {
+            #ifdef LUABRATEN
             if(0 < event_fps_start_intermission(event_listeners(), std::make_tuple()))
             {
                 return;
             }
+            #endif
             intermission = true;
             player1->attacking = false;
             if(cmode) cmode->gameover();
@@ -491,7 +498,9 @@ namespace game
             showscores(true);
             disablezoom();
             if(identexists("intermission")) execute("intermission");
+            #ifdef LUABRATEN
             event_fps_intermission(event_listeners(), std::make_tuple());
+            #endif
         }
     }
 
@@ -523,7 +532,9 @@ namespace game
             clients[cn] = d;
             players.add(d);
         }
+        #ifdef LUABRATEN
         event_fps_newclient(event_listeners(), std::make_tuple(cn));
+        #endif
 
         return clients[cn];
     }
@@ -537,7 +548,9 @@ namespace game
     void clientdisconnected(int cn, bool notify)
     {
         if(!clients.inrange(cn)) return;
+        #ifdef LUABRATEN
         event_fps_clientdisconnected(event_listeners(), std::make_tuple(cn, notify));
+        #endif
         if(following==cn)
         {
             if(followdir) nextfollow(followdir);
@@ -558,10 +571,12 @@ namespace game
 
     void clearclients(bool notify)
     {
+        #ifdef LUABRATEN
         if(0 < event_fps_clearclients(event_listeners(), std::make_tuple(notify)))
         {
             return;
         }
+        #endif
         loopv(clients) if(clients[i]) clientdisconnected(i, notify);
     }
 
@@ -570,18 +585,21 @@ namespace game
         player1 = spawnstate(new fpsent);
         filtertext(player1->name, "unnamed", false, false, MAXNAMELEN);
         players.add(player1);
-        init_zuckerbraten();
+        #ifdef LUABRATEN
         event_fps_initclient(event_listeners(), std::make_tuple());
+        #endif
     }
 
     VARP(showmodeinfo, 0, 1, 1);
 
     void startgame()
     {
+        #ifdef LUABRATEN
         if(0 < event_fps_startgame(event_listeners(), std::make_tuple()))
         {
             return;
         }
+        #endif
         clearmovables();
         clearmonsters();
 
@@ -637,23 +655,30 @@ namespace game
         lasthit = 0;
 
         if(identexists("mapstart")) execute("mapstart");
+        #ifdef LUABRATEN
         event_fps_gamestarted(event_listeners(), std::make_tuple());
+        #endif
     }
 
     void loadingmap(const char *name)
     {
-        if(event_fps_loadingmap(event_listeners(), std::make_tuple()))
+        #ifdef LUABRATEN
+        if(0 < event_fps_loadingmap(event_listeners(), std::make_tuple(name)))
         {
-            if(identexists("playsong")) execute("playsong");
+            return;
         }
+        #endif
+        if(identexists("playsong")) execute("playsong");
     }
 
     void startmap(const char *name)   // called just after a map load
     {
+        #ifdef LUABRATEN
         if(0 < event_fps_startmap(event_listeners(), std::make_tuple(name)))
         {
             return;
         }
+        #endif
         ai::savewaypoints();
         ai::clearwaypoints(true);
 
@@ -673,10 +698,12 @@ namespace game
 
     void physicstrigger(physent *d, bool local, int floorlevel, int waterlevel, int material)
     {
+        #ifdef LUABRATEN
         if(0 < event_fps_physicstrigger(event_listeners(), std::make_tuple(d->type,local,floorlevel,waterlevel,material)))
         {
             return;
         }
+        #endif
         if(d->type==ENT_INANIMATE) return;
         if     (waterlevel>0) { if(material!=MAT_LAVA) playsound(S_SPLASH1, d==player1 ? NULL : &d->o); }
         else if(waterlevel<0) playsound(material==MAT_LAVA ? S_BURN : S_SPLASH2, d==player1 ? NULL : &d->o);
@@ -695,10 +722,12 @@ namespace game
 
     void msgsound(int n, physent *d)
     {
+        #ifdef LUABRATEN
         if(0 < event_fps_msgsound(event_listeners(), std::make_tuple(n,d->type)))
         {
             return;
         }
+        #endif
 
         if(!d || d==player1)
         {
@@ -773,10 +802,12 @@ namespace game
 
     void suicide(physent *d)
     {
+        #ifdef LUABRATEN
         if(0 < event_fps_suicide(event_listeners(), std::make_tuple(d->type)))
         {
             return;
         }
+        #endif
 
         if(d==player1 || (d->type==ENT_PLAYER && ((fpsent *)d)->ai))
         {
@@ -795,17 +826,22 @@ namespace game
     ICOMMAND(suicide, "", (), suicide(player1));
 
     bool needminimap() {
-         double lua_defined_nmm = event_fps_needminimap(event_listeners(), std::make_tuple());
-         conoutf(CON_GAMEINFO, "\f2needminimap is %f", lua_defined_nmm);
-         return (-1 == lua_defined_nmm) ? m_ctf || m_protect || m_hold || m_capture || m_collect :  (1 == lua_defined_nmm);
+         #ifdef LUABRATEN
+           double lua_defined_nmm = event_fps_needminimap(event_listeners(), std::make_tuple());
+           return (-1 == lua_defined_nmm) ? m_ctf || m_protect || m_hold || m_capture || m_collect :  (1 == lua_defined_nmm);
+         #else
+           return m_ctf || m_protect || m_hold || m_capture || m_collect;
+         #endif
     }
 
     void drawicon(int icon, float x, float y, float sz)
     {
+        #ifdef LUABRATEN
         if(0 < event_fps_drawicon(event_listeners(), std::make_tuple(icon)))
         {
             return;
         }
+        #endif
         settexture("packages/hud/items.png");
         float tsz = 0.25f, tx = tsz*(icon%4), ty = tsz*(icon/4);
         gle::defvertex(2);
@@ -853,10 +889,12 @@ namespace game
 
     void drawammohud(fpsent *d)
     {
+        #ifdef LUABRATEN
         if(0 < event_fps_drawammohud(event_listeners(), std::make_tuple(d->clientnum)))
         {   
             return;
         }
+        #endif
         float x = HICON_X + 2*HICON_STEP, y = HICON_Y, sz = HICON_SIZE;
         pushhudmatrix();
         hudmatrix.scale(1/3.2f, 1/3.2f, 1);
@@ -1154,5 +1192,7 @@ namespace game
 
         execfile("auth.cfg", false);
     }
-    #include "game_client_functions.cpp"
+    #ifdef LUABRATEN
+    #include "extsrc/fpsgame/fps_functions.cpp"
+    #endif
 }

@@ -3,7 +3,11 @@
 #include "utils/zuckerbraten.hpp"
 #include "cube.h"
 #include "game.h"
-#include "game_client_functions.hpp"
+#ifndef STANDALONE
+#include "extsrc/fpsgame/fps_functions.hpp"
+#include "extsrc/fpsgame/client_functions.hpp"
+#endif
+
 #include "../shared/tools.h"
 
 extern bool reloaded; // Defined in startup.cpp

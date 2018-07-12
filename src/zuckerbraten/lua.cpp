@@ -99,9 +99,9 @@ lua_State * get_lua_state()
 
 static void load_lua_modules()
 {
-    lua::module::open_net2(L);
+//    lua::module::open_net2(L);
 //    lua::module::open_crypto(L);
-    lua::module::open_mmdb(L);
+//    lua::module::open_mmdb(L);
     lua::module::open_filesystem(L);
 }
 
