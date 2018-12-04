@@ -30,3 +30,4 @@ src/enet/Makefile
 src/vcpp/
 *.o
 **/*.so
+/log/*
