@@ -31,3 +31,9 @@ src/vcpp/
 *.o
 **/*.so
 /log/*
+src/enet/libenet.a
+src/engine/engine.h.gch
+src/fpsgame/game.h.gch
+src/sauer_client
+src/sauer_server
+src/shared/cube.h.gch
