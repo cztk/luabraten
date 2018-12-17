@@ -2,7 +2,7 @@
 #define HOPMOD_PUSH_FUNCTION_HPP
 
 #include <tuple>
-#include <luajit-2.0/lua.hpp>
+#include <luajit-2.1/lua.hpp>
 #include <string>
 #include <vector>
 #include "utils/tuple.hpp"

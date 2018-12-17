@@ -2,7 +2,7 @@
 #define CLIENT_EXTAPI_HPP
 
 extern "C"{
-#include <luajit-2.0/lua.h>
+#include <luajit-2.1/lua.h>
 }
 
 #include <string>

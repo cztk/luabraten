@@ -1,4 +1,4 @@
-#include <luajit-2.0/lua.hpp>
+#include <luajit-2.1/lua.hpp>
 #include "lua/pcall.hpp"
 
 namespace lua{
